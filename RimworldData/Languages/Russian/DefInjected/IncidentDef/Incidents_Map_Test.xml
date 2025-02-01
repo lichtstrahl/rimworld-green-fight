@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: wild man wanders in -->
+  <TestEvent.label>Тестовое событие</TestEvent.label>
+  <!-- EN: {0} wanders in -->
+  <TestEvent.letterLabel>Перевод Label</TestEvent.letterLabel>
+  <!-- EN: A {1} living among wild animals has wandered into the area. {PAWN_pronoun}'s called {0}.\n\nYou can attempt to tame {PAWN_objective}. -->
+  <TestEvent.letterText>Бла бла бла бла бла</TestEvent.letterText>
+  
+</LanguageData>

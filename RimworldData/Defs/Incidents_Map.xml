@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>TestEvent</defName>
+    <label>test</label>
+    <category>Misc</category>
+    
+	<!-- Letters -->
+	<letterLabel>Death! Test</letterLabel>
+    <letterText>Giant insects are tunneling towards you! They will break through in a few seconds and plant hives.\n\nThe hives will spawn more insects and more hives.\n\nIf you don't want the insects to infest the whole area, destroy the hives. But beware - the bugs will defend their home.</letterText>
+	
+	<allowedBiomes>
+      <li>Tundra</li>
+      <li>AridShrubland</li>
+    </allowedBiomes>
+	
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    
+	<workerClass>GreenFight.Events.IncidentWorker_TestIndcident</workerClass>
+    <baseChance>44</baseChance>
+    <minRefireDays>30</minRefireDays>
+  </IncidentDef>
+
+</Defs>
