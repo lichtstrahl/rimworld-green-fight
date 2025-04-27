@@ -11,15 +11,15 @@ namespace GreenFight.Events
     {
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            return testEvent(parms);
+            return TestEvent(parms);
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            return testEvent(parms);
+            return TestEvent(parms);
         }
 
-        private bool testEvent(IncidentParms parms)
+        private bool TestEvent(IncidentParms parms)
         {
             Map map = (Map)parms.target;
             int pawnsCount = map.mapPawns.ColonistsSpawnedCount;

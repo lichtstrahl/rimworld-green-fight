@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GameConditionDef>
+    <defName>GreenTestCondition</defName>
+    <conditionClass>GreenFight.Condition.GreenTestCondition</conditionClass>
+    <label>Label активности</label>
+    <description>Подробное описание активности.</description>
+    <endMessage>Активность завершилась.</endMessage>
+    <letterText>A solar flare has begun.\n\nThe intense radiation will shut down all electrical devices.\n\nIt should pass in about a day.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+  </GameConditionDef>
+
+</Defs>
