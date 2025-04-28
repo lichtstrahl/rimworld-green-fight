@@ -24,6 +24,9 @@
         <severityPerDayNotImmune>5</severityPerDayNotImmune>
         <severityPerDayImmune>-0.5</severityPerDayImmune>
       </li>
+      <li Class="GreenFight.Hediff.HediffCompProperties_GreenHediff">
+        <value>10.5</value>
+      </li>
     </comps>
 
     <stages>
