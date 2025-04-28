@@ -53,8 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\Condition\GreenTestCondition.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
-    <Compile Include="Src\Hediff\HediffCompProperties_GreenHediff.cs" />
-    <Compile Include="Src\Hediff\HediffComp_GreenHediff.cs" />
+    <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
+    <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
+    <Compile Include="Src\Hediff\GreenHediffComp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

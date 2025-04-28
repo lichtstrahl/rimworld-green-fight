@@ -3,9 +3,9 @@ using Verse;
 
 namespace GreenFight.Hediff
 {
-    public class HediffComp_GreenHediff : HediffComp
+    public class GreenHediffComp : HediffComp
     {
-        public HediffCompProperties_GreenHediff GreenProps => (HediffCompProperties_GreenHediff)props;
+        public GreenHediffCompProperties GreenProps => (GreenHediffCompProperties)props;
 
         /**
          * Обработка тика болезнью (конкретной его частью).

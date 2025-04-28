@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using GreenFight.Hediff.DefOf;
+using RimWorld;
 using Verse;
 
 namespace GreenFight.Condition
@@ -24,7 +25,7 @@ namespace GreenFight.Condition
         {
             base.GameConditionTick();
 
-            if (Find.TickManager.TicksGame % 1_000 == 0)
+            if (Find.TickManager.TicksGame % 2_000 == 0)
             {
                 Effect();
             }
@@ -44,14 +45,21 @@ namespace GreenFight.Condition
             Log.Message("end");
         }
 
+        /**
+         * Перебираем всех пешек на всех картах.
+         * Смотрим только пешки не под крышей и это человек (не механоид).
+         */
         private void Effect()
         {
             foreach (var map in AffectedMaps)
             {
                 foreach (var pawn in map.mapPawns.AllPawns)
                 {
-                    var damage = new DamageInfo(DamageDefOf.Stab, 5f);
-                    pawn.TakeDamage(damage);
+                    if (!pawn.Position.Roofed(pawn.Map) && pawn.RaceProps.Humanlike)
+                    {
+                        // pawn.health.AddHediff()
+                        HealthUtility.AdjustSeverity(pawn, GreenHediffDefOf.GreenHediff, GreenHediffDefOf.GreenHediff.initialSeverity);
+                    }
                 }
             }
         }
