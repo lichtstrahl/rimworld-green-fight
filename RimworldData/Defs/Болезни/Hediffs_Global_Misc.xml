@@ -6,9 +6,14 @@
     <!-- Отображается вместе с label конкретного stage -->
     <label>Label для GreenHediff</label>
     <hediffClass>HediffWithComps</hediffClass>
-    <description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
-    <isBad>false</isBad>
-    
+    <description>Тестовая болезнь, созданная по обучалке с YouTube. Проверить перевод. В том числе для stages.</description>
+    <isBad>true</isBad>
+    <!-- Возможность перевязки. -->
+    <tendable>true</tendable>
+    <!-- Стартовая сила болезни -->
+    <initialSeverity>0.1</initialSeverity>
+    <!-- Сила болезни, приводящая к смерти. -->
+    <!--<lethalSeverity>1</lethalSeverity> -->
     <comps>
       <li Class="HediffCompProperties_TendDuration">
         <baseTendDurationHours>36</baseTendDurationHours>
@@ -16,30 +21,65 @@
         <disappearsAtTotalTendQuality>65</disappearsAtTotalTendQuality>
       </li>
       <li Class="HediffCompProperties_Immunizable">
-        <severityPerDayNotImmune>1</severityPerDayNotImmune>
+        <severityPerDayNotImmune>5</severityPerDayNotImmune>
         <severityPerDayImmune>-0.5</severityPerDayImmune>
       </li>
     </comps>
+
     <stages>
       <li>
-        <painOffset>0.2</painOffset>
-        <label>mild pain</label>
+        <label>minor</label>
+        <becomeVisible>false</becomeVisible>
+      </li>
+      
+      <li>
+        <minSeverity>0.15</minSeverity>
+        <label>minor</label>
         <capMods>
           <li>
-            <capacity>Manipulation</capacity>
-            <offset>0.5</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>0.5</offset>
-          </li>
-          <li>
-            <capacity>BloodPumping</capacity>
-            <offset>0.5</offset>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
           </li>
         </capMods>
       </li>
+      
       <li>
+        <minSeverity>0.30</minSeverity>
+        <label>moderate</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+      
+      <li>
+        <minSeverity>0.45</minSeverity>
+        <label>severe</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.4</offset>
+          </li>
+        </capMods>
+      </li>
+      
+      <li>
+        <minSeverity>0.60</minSeverity>
+        <label>very extreme</label>
+        <lifeThreatening>true</lifeThreatening>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.4</offset>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
     </stages>
   </HediffDef>
 
