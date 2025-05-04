@@ -13,14 +13,14 @@ namespace GreenFight.Building
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
-            Log.Message("Создано");
+            Log.Message("Создано Building_GreenBuilding");
         }
 
         public override void Tick()
         {
             base.Tick();
             
-            Log.Message("Частый тик");
+            // Log.Message("Частый тик");
         }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
@@ -30,8 +30,27 @@ namespace GreenFight.Building
             {
                 selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
             });
-            // return base.GetFloatMenuOptions(selPawn);
+
+            yield return createMenuOption();
         }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            // yield return new Command_Ritual();
+
+            yield return new Command_Action()
+            {
+                defaultLabel = "Default label",
+                defaultDesc = "Default description",
+                icon = def.uiIcon,
+                action = () =>
+                {
+                    var ticks = Find.TickManager.TicksGame;
+                    Find.TickManager.DebugSetTicksGame(ticks + 60_000);
+                }
+            };
+        }
+
 
         private FloatMenuOption createMenuOption()
         {
