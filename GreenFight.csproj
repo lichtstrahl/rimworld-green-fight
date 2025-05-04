@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Building\Building_GreenBuilding.cs" />
     <Compile Include="Src\Condition\GreenTestCondition.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
