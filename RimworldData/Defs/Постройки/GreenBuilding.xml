@@ -27,6 +27,9 @@
     
     <comps>
       <li Class="CompProperties_Flickable"/>
+      <li Class="GreenFight.Building.CompProperties_GreenBuilding">
+        <Damage>50</Damage>
+      </li>
     </comps>
   </ThingDef>
   

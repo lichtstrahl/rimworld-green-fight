@@ -7,12 +7,12 @@ namespace GreenFight.Building
 {
     public class Building_GreenBuilding : Verse.Building
     {
-        
+        private GreenBuildingComp _greenBuildingComp;
         
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-
+            _greenBuildingComp = GetComp<GreenBuildingComp>(); 
             Log.Message("Создано Building_GreenBuilding");
         }
 
@@ -20,7 +20,7 @@ namespace GreenFight.Building
         {
             base.Tick();
             
-            // Log.Message("Частый тик");
+            Log.Message("Tick");
         }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
@@ -28,7 +28,8 @@ namespace GreenFight.Building
             
             yield return new FloatMenuOption("Option 1", () =>
             {
-                selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
+                
+                selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, _greenBuildingComp.Props.Damage));
             });
 
             yield return createMenuOption();
