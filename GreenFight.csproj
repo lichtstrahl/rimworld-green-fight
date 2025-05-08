@@ -58,6 +58,7 @@
     <Compile Include="Src\Building\Building_GreenBuilding.cs" />
     <Compile Include="Src\Building\CompProperties_GreenBuilding.cs" />
     <Compile Include="Src\Building\GreenBuildingComp.cs" />
+    <Compile Include="Src\Building\MenuOptions_GreenBuilding.cs" />
     <Compile Include="Src\Condition\GreenTestCondition.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
