@@ -65,4 +65,18 @@
     <Compile Include="Src\Hediff\GreenHediffComp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
+  <Target Name="Deploy" AfterTargets="Build">
+    <ItemGroup>
+      <RimworldData Include="RimworldData\**\*.*"/>
+    </ItemGroup>
+    
+    <Message Text="Удаление файлов из $(DeployPath)" Importance="high"/>
+    <RemoveDir Directories="$(DeployPath)"/>
+    <MakeDir Directories="$(DeployPath)"/>
+
+    <Message Text="Копирование файлов" Importance="high"/>
+    <Copy SourceFiles="@(RimworldData)" DestinationFolder="$(DeployPath)\%(RecursiveDir)"/>
+    
+  </Target>
 </Project>
