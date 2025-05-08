@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GreenFight.Building;
 using Verse;
 using Verse.AI;
 
@@ -30,8 +31,16 @@ namespace GreenFight.Job
                 .FailOnDespawnedNullOrForbidden(ItemIndex);
             yield return Toils_Goto.GotoCell(Building.Thing.Position, PathEndMode.ClosestTouch)
                 .FailOnDespawnedNullOrForbidden(BuildingIndex);
-            yield return Toils_Haul.DropCarriedThing()
-                .FailOnDespawnedNullOrForbidden(ItemIndex);
+            Toil upload = new Toil()
+            {
+                initAction = () =>
+                {
+                    pawn.carryTracker.TryDropCarriedThing(factory.Position, ThingPlaceMode.Near, out Thing _);
+                    factory?.upload(Item.Thing);
+                    Item.Thing.DeSpawn();
+                }
+            };
+            yield return upload;
         }
     }
     
@@ -53,6 +62,7 @@ namespace GreenFight.Job
     {
         protected LocalTargetInfo Building => TargetA;
         protected TargetIndex BuildingIndex => TargetIndex.A;
+        protected Building_GreenFactory factory => Building.Thing as Building_GreenFactory;
         
         protected LocalTargetInfo Item => TargetB;
         protected TargetIndex ItemIndex => TargetIndex.B;

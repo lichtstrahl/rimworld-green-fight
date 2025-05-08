@@ -7,4 +7,8 @@
     
     <MenuOptions_GreenFactory_NextDayAction_Label>Следующий день</MenuOptions_GreenFactory_NextDayAction_Label>
     <MenuOptions_GreenFactory_NextDayAction_Desc>Продвинуть время на 1 день вперёд</MenuOptions_GreenFactory_NextDayAction_Desc>
+    
+    <!-- Building_GreenFactory -->
+    <Building_GreenFactory_State_Empty>Фабрика пуста</Building_GreenFactory_State_Empty>
+    <Building_GreenFactory_State_Full>Фабрика заполнена, компонентов {0}.</Building_GreenFactory_State_Full>
 </LanguageInfo>

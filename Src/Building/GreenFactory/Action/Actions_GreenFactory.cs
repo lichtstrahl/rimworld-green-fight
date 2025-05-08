@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Job.DefOf;
 using RimWorld;
@@ -62,7 +63,7 @@ namespace GreenFight.Building
         // Выпадающее доп. меню на загрузку любого наркотика на карте.
         private static FloatMenuOption CreateUploadOption(Pawn pawn, Building_GreenFactory factory)
         {
-            return new FloatMenuOption($"{_languageKey}_Upload".TranslateSimple(), delegate
+            Action action = () =>
             {
                 var drugOptions = factory.Map.listerThings.ThingsInGroup(ThingRequestGroup.Drug)
                     .Select(drug => CreateUploadDrugOption(pawn, factory, drug))
@@ -76,7 +77,12 @@ namespace GreenFight.Building
                 {
                     Log.Warning("На карте нет наркотиков.");
                 }
-            });
+            };
+
+            return new FloatMenuOption(
+                label: $"{_languageKey}_Upload".TranslateSimple(),
+                action: factory.isEmpty() ? action : null
+            );
         }
 
         // Выдача пешке работы на погрузку наркотика.
