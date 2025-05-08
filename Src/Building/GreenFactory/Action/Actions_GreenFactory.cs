@@ -21,6 +21,7 @@ namespace GreenFight.Building
             yield return CreateDamageOption(pawn);
             yield return CreateLogOption();
             yield return CreateUploadOption(pawn, factory);
+            yield return CreateGetOption(pawn, factory);
         }
 
         public static IEnumerable<Gizmo> GetGizmos(Texture selfIcon)
@@ -81,7 +82,7 @@ namespace GreenFight.Building
 
             return new FloatMenuOption(
                 label: $"{_languageKey}_Upload".TranslateSimple(),
-                action: factory.isEmpty() ? action : null
+                action: factory.IsEmpty() ? action : null
             );
         }
 
@@ -98,6 +99,20 @@ namespace GreenFight.Building
 
                 pawn.jobs.TryTakeOrderedJob(job);
             });
+        }
+        
+        // Выгрузить предмет из фабрики
+        private static FloatMenuOption CreateGetOption(Pawn pawn, Building_GreenFactory factory)
+        {
+            Action action = () =>
+            {
+                Log.Message("GetJob");
+            };
+            
+            return new FloatMenuOption(
+                label: $"{_languageKey}_Get".TranslateSimple(),
+                action: !factory.IsEmpty() && factory.HasPower() ? action : null
+            );
         }
     }
 }

@@ -30,6 +30,12 @@
       <li Class="GreenFight.Building.CompProperties_GreenFactory">
         <Damage>50</Damage>
       </li>
+
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
     </comps>
   </ThingDef>
   

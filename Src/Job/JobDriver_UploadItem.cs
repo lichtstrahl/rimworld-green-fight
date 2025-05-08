@@ -36,7 +36,7 @@ namespace GreenFight.Job
                 initAction = () =>
                 {
                     pawn.carryTracker.TryDropCarriedThing(factory.Position, ThingPlaceMode.Near, out Thing _);
-                    factory?.upload(Item.Thing);
+                    factory?.Upload(Item.Thing);
                     Item.Thing.DeSpawn();
                 }
             };

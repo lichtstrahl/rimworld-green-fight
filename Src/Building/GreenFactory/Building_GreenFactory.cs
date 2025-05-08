@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GreenFight.Condition.DefOf;
 using RimWorld;
 using Verse;
 using UnityEngine;
@@ -8,17 +9,18 @@ namespace GreenFight.Building
     public class Building_GreenFactory : Verse.Building
     {
         private Comp_GreenFactory _compGreenFactory;
+        private CompPowerTrader _compPowerTrader;
         private static string _languageKey = "Building_GreenFactory";
 
         private Thing _container;
-        // private static string _languageKey = "Building_GreenFactory";
         
         // Override
         
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            _compGreenFactory = GetComp<Comp_GreenFactory>(); 
+            _compGreenFactory = GetComp<Comp_GreenFactory>();
+            _compPowerTrader = GetComp<CompPowerTrader>();
             Log.Message("Создано Building_GreenBuilding");
         }
 
@@ -36,18 +38,35 @@ namespace GreenFight.Building
 
         public override string GetInspectString()
         {
-            return isEmpty()
+            return IsEmpty()
                 ? $"{_languageKey}_State_Empty".TranslateSimple()
                 : $"{_languageKey}_State_Full".Translate(1).ToString();
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Deep.Look(ref _container, "container");
+        }
+
         // API
 
-        public void upload(Thing item)
+        public void Upload(Thing item)
         {
             _container = item;
         }
 
-        public bool isEmpty() => _container == null;
+        public bool IsEmpty() => _container == null;
+
+        public bool HasPower()
+        {
+            bool hasSolarFlare = Map.GameConditionManager.ConditionIsActive(GreenConditionDefOf.SolarFlare);
+            return _compPowerTrader.PowerOn && !hasSolarFlare;
+        }
+        
+        // private
+        
+        
     }
 }
