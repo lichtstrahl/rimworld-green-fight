@@ -64,6 +64,8 @@
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
     <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
     <Compile Include="Src\Hediff\GreenHediffComp.cs" />
+    <Compile Include="Src\Job\DefOf\GreenJobDefOf.cs" />
+    <Compile Include="Src\Job\JobDriver_UploadItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   
