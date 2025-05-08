@@ -3,6 +3,8 @@
     <!-- MenuOptions_GreenFactory -->
     <MenuOptions_GreenFactory_Damage>Получить по лицу</MenuOptions_GreenFactory_Damage>
     <MenuOptions_GreenFactory_Log>Печать в лог</MenuOptions_GreenFactory_Log>
+    <MenuOptions_GreenFactory_Upload>Загрузить предмет</MenuOptions_GreenFactory_Upload>
+    
     <MenuOptions_GreenFactory_NextDayAction_Label>Следующий день</MenuOptions_GreenFactory_NextDayAction_Label>
     <MenuOptions_GreenFactory_NextDayAction_Desc>Продвинуть время на 1 день вперёд</MenuOptions_GreenFactory_NextDayAction_Desc>
 </LanguageInfo>

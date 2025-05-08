@@ -26,7 +26,7 @@ namespace GreenFight.Building
         }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) =>
-            Actions_GreenFactory.GetOptions(selPawn);
+            Actions_GreenFactory.GetOptions(selPawn, this);
 
         public override IEnumerable<Gizmo> GetGizmos() =>
             Actions_GreenFactory.GetGizmos(def.uiIcon);

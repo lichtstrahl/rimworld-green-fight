@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using GreenFight.Job.DefOf;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -13,10 +15,11 @@ namespace GreenFight.Building
     {
         private static string _languageKey = "MenuOptions_GreenFactory";
 
-        public static IEnumerable<FloatMenuOption> GetOptions(Pawn pawn)
+        public static IEnumerable<FloatMenuOption> GetOptions(Pawn pawn, Building_GreenFactory factory)
         {
             yield return CreateDamageOption(pawn);
             yield return CreateLogOption();
+            yield return CreateUploadOption(pawn, factory);
         }
 
         public static IEnumerable<Gizmo> GetGizmos(Texture selfIcon)
@@ -53,6 +56,41 @@ namespace GreenFight.Building
             return new FloatMenuOption($"{_languageKey}_Log".TranslateSimple(), () =>
             {
                 Log.Message("Выбрали опцию в меню");
+            });
+        }
+        
+        // Выпадающее доп. меню на загрузку любого наркотика на карте.
+        private static FloatMenuOption CreateUploadOption(Pawn pawn, Building_GreenFactory factory)
+        {
+            return new FloatMenuOption($"{_languageKey}_Upload".TranslateSimple(), delegate
+            {
+                var drugOptions = factory.Map.listerThings.ThingsInGroup(ThingRequestGroup.Drug)
+                    .Select(drug => CreateUploadDrugOption(pawn, factory, drug))
+                    .ToList();
+
+                if (drugOptions.Count > 0)
+                {
+                    Find.WindowStack.Add(new FloatMenu(drugOptions));
+                }
+                else
+                {
+                    Log.Warning("На карте нет наркотиков.");
+                }
+            });
+        }
+
+        // Выдача пешке работы на погрузку наркотика.
+        private static FloatMenuOption CreateUploadDrugOption(Pawn pawn, Building_GreenFactory factory, Thing drug)
+        {
+            return new FloatMenuOption(drug.Label, delegate
+            {
+                Verse.AI.Job job = new Verse.AI.Job(GreenJobDefOf.UploadItem, factory, drug)
+                {
+                    count = 1, 
+                    playerForced = true
+                };
+
+                pawn.jobs.TryTakeOrderedJob(job);
             });
         }
     }
