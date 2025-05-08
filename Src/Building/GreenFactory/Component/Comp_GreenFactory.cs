@@ -2,9 +2,9 @@
 
 namespace GreenFight.Building
 {
-    public class GreenBuildingComp : ThingComp
+    public class Comp_GreenFactory : ThingComp
     {
-        public CompProperties_GreenBuilding Props => (CompProperties_GreenBuilding)props;
+        public CompProperties_GreenFactory Props => (CompProperties_GreenFactory)props;
 
 
         public override void CompTick()

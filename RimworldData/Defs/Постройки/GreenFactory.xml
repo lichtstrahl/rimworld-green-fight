@@ -2,8 +2,8 @@
 <Defs>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>GreenBuilding</defName>
-    <thingClass>GreenFight.Building.Building_GreenBuilding</thingClass>
+    <defName>GreenFactory</defName>
+    <thingClass>GreenFight.Building.Building_GreenFactory</thingClass>
     
     <label>Постройка GreenFight</label>
     <description>Первая постройка в рамках GreenFight.</description>
@@ -27,7 +27,7 @@
     
     <comps>
       <li Class="CompProperties_Flickable"/>
-      <li Class="GreenFight.Building.CompProperties_GreenBuilding">
+      <li Class="GreenFight.Building.CompProperties_GreenFactory">
         <Damage>50</Damage>
       </li>
     </comps>
