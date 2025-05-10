@@ -60,6 +60,8 @@
     <Compile Include="Src\Building\GreenFactory\Component\CompProperties_GreenFactory.cs" />
     <Compile Include="Src\Building\GreenFactory\Component\Comp_GreenFactory.cs" />
     <Compile Include="Src\Bullet\Bullet_GreenBoomBullet.cs" />
+    <Compile Include="Src\Component\GreenComponent.cs" />
+    <Compile Include="Src\Component\World\GreenWorldComponent.cs" />
     <Compile Include="Src\Condition\DefOf\GreenConditionDefOf.cs" />
     <Compile Include="Src\Condition\GreenTestCondition.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />

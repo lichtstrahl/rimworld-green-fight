@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GreenFight.Component;
 using GreenFight.Condition.DefOf;
 using RimWorld;
 using Verse;
@@ -15,6 +16,8 @@ namespace GreenFight.Building
         
         private Comp_GreenFactory _compGreenFactory;
         private CompPowerTrader _compPowerTrader;
+        
+        private GreenComponent _greenComponent;
 
         private Thing _container;
         private int _workProgress = 0;
@@ -26,6 +29,8 @@ namespace GreenFight.Building
             base.SpawnSetup(map, respawningAfterLoad);
             _compGreenFactory = GetComp<Comp_GreenFactory>();
             _compPowerTrader = GetComp<CompPowerTrader>();
+            _greenComponent = Current.Game.GetComponent<GreenComponent>();
+            
             Log.Message("Создано Building_GreenBuilding");
         }
 
@@ -78,6 +83,7 @@ namespace GreenFight.Building
         
         public void Upload(Thing item)
         {
+            _greenComponent.UploadCount++;
             _container = item;
             _workProgress = 0;
         }
