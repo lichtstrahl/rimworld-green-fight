@@ -12,6 +12,16 @@ namespace GreenFight.Job
      */
     public class JobDriver_UploadItem : GreenBuildingItemJobDriver
     {
+        
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            if (pawn.Reserve(Building, job))
+            {
+                return pawn.Reserve(Item, job);
+            }
+
+            return false;
+        }
 
         /**
          * Назначение работ для пешки.
@@ -49,9 +59,14 @@ namespace GreenFight.Job
      */
     public class JobDriver_GetItem : GreenBuildingItemJobDriver
     {
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return (pawn.Reserve(Building, job));
+        }
+        
         // Назначение работ для пешки.
         protected override IEnumerable<Toil> MakeNewToils()
-        {
+        {  
             Log.Warning("Не задано никаких действий для JobDriver_GetItem");
             return Enumerable.Empty<Toil>();
         }
@@ -66,16 +81,5 @@ namespace GreenFight.Job
         
         protected LocalTargetInfo Item => TargetB;
         protected TargetIndex ItemIndex => TargetIndex.B;
-        
-        // Пешка резервирует постройку и предмет для неё.
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            if (pawn.Reserve(Building, job))
-            {
-                return pawn.Reserve(Item, job);
-            }
-
-            return false;
-        }
     }
 }

@@ -24,10 +24,11 @@ namespace GreenFight.Building
             Log.Message("Создано Building_GreenBuilding");
         }
 
-        public override void Tick()
+        public override void TickRare()
         {
-            base.Tick();
+            base.TickRare();
             
+            Log.Message("Периодический опрос фабрики.");
         }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) =>

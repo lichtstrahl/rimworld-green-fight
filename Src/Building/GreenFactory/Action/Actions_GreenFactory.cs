@@ -106,7 +106,11 @@ namespace GreenFight.Building
         {
             Action action = () =>
             {
-                Log.Message("GetJob");
+                Verse.AI.Job job = new Verse.AI.Job(GreenJobDefOf.GetItem, factory)
+                {
+                    playerForced = true
+                };
+                pawn.jobs.TryTakeOrderedJob(job);
             };
             
             return new FloatMenuOption(
