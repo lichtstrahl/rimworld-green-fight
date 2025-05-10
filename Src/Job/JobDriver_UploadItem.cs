@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Building;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -41,13 +42,18 @@ namespace GreenFight.Job
                 .FailOnDespawnedNullOrForbidden(ItemIndex);
             yield return Toils_Goto.GotoCell(Building.Thing.Position, PathEndMode.ClosestTouch)
                 .FailOnDespawnedNullOrForbidden(BuildingIndex);
+            yield return Toils_General.Wait(150)
+                .WithProgressBarToilDelay(BuildingIndex)
+                .FailOnDespawnedNullOrForbidden(BuildingIndex);
+            
             Toil upload = new Toil()
             {
                 initAction = () =>
                 {
-                    pawn.carryTracker.TryDropCarriedThing(factory.Position, ThingPlaceMode.Near, out Thing _);
-                    factory?.Upload(Item.Thing);
-                    Item.Thing.DeSpawn();
+                    Thing targetItem;
+                    pawn.carryTracker.TryDropCarriedThing(factory.Position, ThingPlaceMode.Near, out targetItem);
+                    factory?.Upload(targetItem);
+                    targetItem.DeSpawn();
                 }
             };
             yield return upload;
@@ -66,9 +72,24 @@ namespace GreenFight.Job
         
         // Назначение работ для пешки.
         protected override IEnumerable<Toil> MakeNewToils()
-        {  
-            Log.Warning("Не задано никаких действий для JobDriver_GetItem");
-            return Enumerable.Empty<Toil>();
+        {
+            yield return Toils_Reserve.Reserve(BuildingIndex)
+                .FailOnDespawnedNullOrForbidden(BuildingIndex);
+
+            yield return Toils_Goto.GotoCell(Building.Cell, PathEndMode.ClosestTouch)
+                .FailOnDespawnedNullOrForbidden(BuildingIndex);
+
+            yield return Toils_General.Wait(150)
+                .WithProgressBarToilDelay(BuildingIndex)
+                .FailOnDespawnedNullOrForbidden(BuildingIndex);
+
+            yield return new Toil
+            {
+                initAction = () =>
+                {
+                    factory?.GetItem();
+                }
+            };
         }
     }
     

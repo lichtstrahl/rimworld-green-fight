@@ -66,6 +66,16 @@ namespace GreenFight.Building
 
         // API
 
+        public void GetItem()
+        {
+            if (_container != null)
+            {
+                _container.stackCount = (int)Math.Truncate(GetCurrentProgress());
+                GenDrop.TryDropSpawn(_container, Position + IntVec3.South * 3, Map, ThingPlaceMode.Near, out _);
+                _container = null;
+            }
+        }
+        
         public void Upload(Thing item)
         {
             _container = item;
