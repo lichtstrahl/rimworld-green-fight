@@ -11,5 +11,7 @@
     
     <!-- Building_GreenFactory -->
     <Building_GreenFactory_State_Empty>Фабрика пуста</Building_GreenFactory_State_Empty>
-    <Building_GreenFactory_State_Full>Фабрика заполнена, компонентов {0}.</Building_GreenFactory_State_Full>
+    <Building_GreenFactory_State_Full>Фабрика заполнена.\nКомпонентов: {0}.\nГотовность: {1}.\nМаксимальная готовность: {2}.\nПримечания: {3}</Building_GreenFactory_State_Full>
+    <Building_GreenFactory_NoPower>Ничего не производит без энергии.</Building_GreenFactory_NoPower>
+    <Building_GreenFactory_HasPower>Вернёт указанное количество предметов.</Building_GreenFactory_HasPower>
 </LanguageInfo>

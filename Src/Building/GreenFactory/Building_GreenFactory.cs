@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GreenFight.Condition.DefOf;
 using RimWorld;
 using Verse;
@@ -8,11 +9,15 @@ namespace GreenFight.Building
 {
     public class Building_GreenFactory : Verse.Building
     {
+        private static string _languageKey = "Building_GreenFactory";
+        private static int WorkTime = 2500 * 2;
+        private static double MaxProgress = 5.0;
+        
         private Comp_GreenFactory _compGreenFactory;
         private CompPowerTrader _compPowerTrader;
-        private static string _languageKey = "Building_GreenFactory";
 
         private Thing _container;
+        private int _workProgress = 0;
         
         // Override
         
@@ -27,8 +32,11 @@ namespace GreenFight.Building
         public override void TickRare()
         {
             base.TickRare();
-            
-            Log.Message("Периодический опрос фабрики.");
+
+            if (HasPower() && GetCurrentProgress() < MaxProgress)
+            {
+                _workProgress += 2000;
+            }
         }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) =>
@@ -39,9 +47,13 @@ namespace GreenFight.Building
 
         public override string GetInspectString()
         {
+            var count = 1;
+            var progress = GetCurrentProgress().ToString("f2");
+            
             return IsEmpty()
                 ? $"{_languageKey}_State_Empty".TranslateSimple()
-                : $"{_languageKey}_State_Full".Translate(1).ToString();
+                : $"{_languageKey}_State_Full".Translate(count, progress, MaxProgress, GetPowerState())
+                    .ToString();
         }
 
         public override void ExposeData()
@@ -49,6 +61,7 @@ namespace GreenFight.Building
             base.ExposeData();
 
             Scribe_Deep.Look(ref _container, "container");
+            Scribe_Values.Look(ref _workProgress, "_workStartTs");
         }
 
         // API
@@ -56,6 +69,7 @@ namespace GreenFight.Building
         public void Upload(Thing item)
         {
             _container = item;
+            _workProgress = 0;
         }
 
         public bool IsEmpty() => _container == null;
@@ -65,9 +79,26 @@ namespace GreenFight.Building
             bool hasSolarFlare = Map.GameConditionManager.ConditionIsActive(GreenConditionDefOf.SolarFlare);
             return _compPowerTrader.PowerOn && !hasSolarFlare;
         }
-        
+
+        public bool HasGetItemAction()
+        {
+            bool isComplete = true;
+            return !IsEmpty() && isComplete;
+        }
+
         // private
-        
-        
+
+        private double GetCurrentProgress()
+        {
+            double work = _workProgress * 1.0 / WorkTime;
+            return Math.Min(1.0 + work, MaxProgress);
+        }
+
+        private string GetPowerState()
+        {
+            return HasPower()
+                ? $"{_languageKey}_HasPower".TranslateSimple()
+                : $"{_languageKey}_NoPower".TranslateSimple();
+        }
     }
 }

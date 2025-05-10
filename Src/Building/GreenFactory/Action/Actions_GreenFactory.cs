@@ -115,7 +115,7 @@ namespace GreenFight.Building
             
             return new FloatMenuOption(
                 label: $"{_languageKey}_Get".TranslateSimple(),
-                action: !factory.IsEmpty() && factory.HasPower() ? action : null
+                action: factory.HasGetItemAction() ? action : null
             );
         }
     }
