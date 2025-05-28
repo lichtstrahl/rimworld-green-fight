@@ -4,12 +4,14 @@ namespace GreenFight.Component
 {
     public class GreenComponent : GameComponent
     {
+        
+        /** Количество загрузок в фабрику. */
         public int UploadCount = 0;
         
         // В Главном меню при создании новой игры. После выбора сценария.
         public GreenComponent(Game game)
         {
-            
+            Log.Message("Выбран сценарий для новой игры.");
         }
 
         public GreenComponent()
@@ -52,6 +54,7 @@ namespace GreenFight.Component
         public override void StartedNewGame()
         {
             base.StartedNewGame();
+            Log.Message("Приземление");
         }
 
         public override void ExposeData()
