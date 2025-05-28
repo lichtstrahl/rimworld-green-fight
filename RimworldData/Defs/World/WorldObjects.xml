@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <WorldObjectDef>
+    <defName>GreenPoint</defName>
+    <worldObjectClass>GreenFight.World.WorldObject_GreenPointMap</worldObjectClass>
+    <texture>World/WorldObjects/Caravan</texture>
+    
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/Caravan</expandingIconTexture>
+    <expandingIconPriority>70</expandingIconPriority>
+    
+    
+    <IncidentTargetTags>
+      <li>Map_Misc</li>
+    </IncidentTargetTags>
+  </WorldObjectDef>
+  
+
+</Defs>
