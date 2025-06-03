@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Job.DefOf;
+using GreenFight.Window;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -22,6 +23,7 @@ namespace GreenFight.Building
             yield return CreateLogOption();
             yield return CreateUploadOption(pawn, factory);
             yield return CreateGetOption(pawn, factory);
+            yield return CreateHediffListWindow(pawn);
         }
 
         public static IEnumerable<Gizmo> GetGizmos(Texture selfIcon)
@@ -117,6 +119,16 @@ namespace GreenFight.Building
                 label: $"{_languageKey}_Get".TranslateSimple(),
                 action: factory.HasGetItemAction() ? action : null
             );
+        }
+        
+        // Показать окно протезов для активной пешки
+        private static FloatMenuOption CreateHediffListWindow(Pawn pawn)
+        {
+            return new FloatMenuOption("Открыть меню протезов", () =>
+            {
+                GreenWindow window = new GreenWindow(pawn);
+                Find.WindowStack.Add(window);
+            });
         }
     }
 }
