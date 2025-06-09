@@ -6,5 +6,7 @@ namespace GreenFight.Hediff.DefOf
     public static class GreenHediffDefOf
     {
         public static HediffDef GreenHediff;
+
+        public static HediffDef BionicEye;
     }
 }
