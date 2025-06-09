@@ -17,4 +17,7 @@
     
     <!-- Генерация карты -->
     <GenerateGreenPointMap>Генерация карты (green)</GenerateGreenPointMap>
+    
+    <!-- Настройки -->
+    <GreenModSettings_SelectWeather>Выбрать погоду ({0})</GreenModSettings_SelectWeather>
 </LanguageInfo>

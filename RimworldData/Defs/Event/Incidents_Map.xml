@@ -23,5 +23,18 @@
     <baseChance>44</baseChance>
     <minRefireDays>30</minRefireDays>
   </IncidentDef>
+  
+  <IncidentDef>
+    <defName>GreenEvent</defName>
+    <label>GreenEvent label.</label>
+    
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    
+    <workerClass>GreenFight.Events.IncidentWorker_GreenEvent</workerClass>
+    <baseChance>1.0</baseChance>
+  </IncidentDef>
 
 </Defs>
