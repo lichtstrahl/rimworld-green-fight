@@ -15,5 +15,12 @@
         
         <reportString>поулчает предмет.</reportString>
     </JobDef>
+
+    <JobDef>
+        <defName>TradeProthesis</defName>
+        <driverClass>GreenFight.Job.JobDriver_GotoTradeProthesis</driverClass>
+
+        <reportString>покупает протезы.</reportString>
+    </JobDef>
     
 </Defs>

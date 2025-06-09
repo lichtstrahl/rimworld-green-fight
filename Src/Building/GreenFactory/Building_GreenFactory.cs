@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GreenFight.Component;
 using GreenFight.Condition.DefOf;
+using GreenFight.Window;
 using RimWorld;
 using Verse;
 using UnityEngine;
@@ -100,6 +101,12 @@ namespace GreenFight.Building
         {
             bool isComplete = true;
             return !IsEmpty() && isComplete;
+        }
+
+        public void OpenTradeWindow(Pawn pawn)
+        {
+            GreenWindow window = new GreenWindow(pawn);
+            Find.WindowStack.Add(window);
         }
 
         // private

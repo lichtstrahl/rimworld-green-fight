@@ -8,5 +8,6 @@ namespace GreenFight.Job.DefOf
 
         public static JobDef UploadItem;
         public static JobDef GetItem;
+        public static JobDef TradeProthesis;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GreenFight.Job;
 using GreenFight.Job.DefOf;
 using GreenFight.Window;
 using RimWorld;
@@ -23,7 +24,7 @@ namespace GreenFight.Building
             yield return CreateLogOption();
             yield return CreateUploadOption(pawn, factory);
             yield return CreateGetOption(pawn, factory);
-            yield return CreateHediffListWindow(pawn);
+            yield return CreateHediffListWindow(pawn, factory);
         }
 
         public static IEnumerable<Gizmo> GetGizmos(Texture selfIcon)
@@ -122,12 +123,11 @@ namespace GreenFight.Building
         }
         
         // Показать окно протезов для активной пешки
-        private static FloatMenuOption CreateHediffListWindow(Pawn pawn)
+        private static FloatMenuOption CreateHediffListWindow(Pawn pawn, Building_GreenFactory factory)
         {
-            return new FloatMenuOption("Открыть меню протезов", () =>
+            return new FloatMenuOption("Купить протезы", () =>
             {
-                GreenWindow window = new GreenWindow(pawn);
-                Find.WindowStack.Add(window);
+                JobDriver_GotoTradeProthesis.TakeJob(pawn, factory);
             });
         }
     }
