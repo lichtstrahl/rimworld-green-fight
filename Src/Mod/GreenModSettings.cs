@@ -7,7 +7,7 @@ namespace GreenFight.Mod
 {
     public class GreenModSettings : ModSettings
     {
-        private static string _LanguageKey = "GreenModSettings";
+        private static string _languageKey = "GreenModSettings";
         
         private string _weatherDefName;
         private WeatherDef _weather;
@@ -38,12 +38,16 @@ namespace GreenFight.Mod
 
         public int lightningCount = 1;
         private string lightningCountBuff;
+
+        public int foodSatisfyingPower = 100;
+        private string _foodSatisfyingPowerBuff;
         
         public override void ExposeData()
         {
             Scribe_Values.Look<string>(ref _weatherDefName, "weatherDefName");
             Scribe_Values.Look<IntRange>(ref RaidPowerRange, "RaidPowerRange", new IntRange(100, 500));
             Scribe_Values.Look(ref lightningCount, "lightningCount", 1);
+            Scribe_Values.Look(ref foodSatisfyingPower, "foodSatisfyingPower", 100);
         }
 
         public void DoSettingsWindowContents(Rect inRect)
@@ -59,7 +63,7 @@ namespace GreenFight.Mod
             listingRect.height = 99_999f;
             listing.Begin(listingRect);
 
-            if (listing.ButtonText($"{_LanguageKey}_SelectWeather".Translate(WeatherDef.LabelCap)))
+            if (listing.ButtonText($"{_languageKey}_SelectWeather".Translate(WeatherDef.LabelCap)))
             {
                 var options = DefDatabase<WeatherDef>.AllDefsListForReading
                     .Select(weather => new FloatMenuOption(weather.LabelCap, () =>
@@ -70,8 +74,10 @@ namespace GreenFight.Mod
                 Find.WindowStack.Add(new FloatMenu(options.ToList()));
             }
 
+            listing.Label($"{_languageKey}_raidPowerRange".TranslateSimple());
             listing.IntRange(ref RaidPowerRange, 1, 10_000);
-            listing.TextFieldNumeric(ref lightningCount, ref lightningCountBuff, 1, 1000);
+            listing.TextFieldNumericLabeled($"{_languageKey}_lightningCount".TranslateSimple(), ref lightningCount, ref lightningCountBuff, 1, 1000);
+            listing.TextFieldNumericLabeled($"{_languageKey}_foodSatisfying".TranslateSimple(), ref foodSatisfyingPower, ref _foodSatisfyingPowerBuff, 50, 50_000);
             
             listing.End();
             _viewHeight = listing.CurHeight;

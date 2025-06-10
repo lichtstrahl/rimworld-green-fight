@@ -66,6 +66,7 @@
     <Compile Include="Src\Building\GreenFactory\Building_GreenFactory.cs" />
     <Compile Include="Src\Building\GreenFactory\Component\CompProperties_GreenFactory.cs" />
     <Compile Include="Src\Building\GreenFactory\Component\Comp_GreenFactory.cs" />
+    <Compile Include="Src\Building\SettingsBuilding\Building_SettingsBuilding.cs" />
     <Compile Include="Src\Bullet\Bullet_GreenBoomBullet.cs" />
     <Compile Include="Src\Component\GreenComponent.cs" />
     <Compile Include="Src\Component\World\GreenWorldComponent.cs" />
