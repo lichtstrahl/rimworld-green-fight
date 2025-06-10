@@ -35,6 +35,13 @@
     
     <workerClass>GreenFight.Events.IncidentWorker_GreenEvent</workerClass>
     <baseChance>1.0</baseChance>
+    
+    <modExtensions>
+      <li Class="GreenFight.Mod.Extension.DefModExtension_EventExtension">
+        <WeatherDef>Rain</WeatherDef>
+        <RaidPowerRange>15000~25000</RaidPowerRange>
+      </li>
+    </modExtensions>
   </IncidentDef>
 
 </Defs>

@@ -55,6 +55,12 @@
 <!--    </researchPrerequisites>-->
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <uiIconScale>0.9</uiIconScale>
+
+    <modExtensions>
+        <li Class="GreenFight.Mod.Extension.DefModExtension_BuildingExtension">
+            <foodSatisfyingPower>100</foodSatisfyingPower>
+        </li>
+    </modExtensions>
 </ThingDef>
     
 </Defs>

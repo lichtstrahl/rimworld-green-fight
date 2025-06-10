@@ -5,6 +5,8 @@ using Verse;
 
 namespace GreenFight.Mod
 {
+    
+    // На момент инициализации настроек дефы ещё могут быть не загружены. Поэтому погоду подгружаем только при обращении.
     public class GreenModSettings : ModSettings
     {
         private static string _languageKey = "GreenModSettings";
@@ -39,7 +41,7 @@ namespace GreenFight.Mod
         public int lightningCount = 1;
         private string lightningCountBuff;
 
-        public int foodSatisfyingPower = 100;
+        public int foodSatisfyingPower;
         private string _foodSatisfyingPowerBuff;
         
         public override void ExposeData()
