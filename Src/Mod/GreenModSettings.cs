@@ -36,10 +36,14 @@ namespace GreenFight.Mod
         private Vector2 _scrollPosition = Vector2.zero;
         private float _viewHeight = 0;
 
+        public int lightningCount = 1;
+        private string lightningCountBuff;
+        
         public override void ExposeData()
         {
             Scribe_Values.Look<string>(ref _weatherDefName, "weatherDefName");
             Scribe_Values.Look<IntRange>(ref RaidPowerRange, "RaidPowerRange", new IntRange(100, 500));
+            Scribe_Values.Look(ref lightningCount, "lightningCount", 1);
         }
 
         public void DoSettingsWindowContents(Rect inRect)
@@ -67,6 +71,7 @@ namespace GreenFight.Mod
             }
 
             listing.IntRange(ref RaidPowerRange, 1, 10_000);
+            listing.TextFieldNumeric(ref lightningCount, ref lightningCountBuff, 1, 1000);
             
             listing.End();
             _viewHeight = listing.CurHeight;
