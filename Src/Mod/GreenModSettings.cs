@@ -38,7 +38,7 @@ namespace GreenFight.Mod
         private Vector2 _scrollPosition = Vector2.zero;
         private float _viewHeight = 0;
 
-        public int lightningCount = 1;
+        public int lightningCount = 0;
         private string lightningCountBuff;
 
         public int foodSatisfyingPower;
@@ -48,7 +48,7 @@ namespace GreenFight.Mod
         {
             Scribe_Values.Look<string>(ref _weatherDefName, "weatherDefName");
             Scribe_Values.Look<IntRange>(ref RaidPowerRange, "RaidPowerRange", new IntRange(100, 500));
-            Scribe_Values.Look(ref lightningCount, "lightningCount", 1);
+            Scribe_Values.Look(ref lightningCount, "lightningCount", 0);
             Scribe_Values.Look(ref foodSatisfyingPower, "foodSatisfyingPower", 100);
         }
 
@@ -78,7 +78,7 @@ namespace GreenFight.Mod
 
             listing.Label($"{_languageKey}_raidPowerRange".TranslateSimple());
             listing.IntRange(ref RaidPowerRange, 1, 10_000);
-            listing.TextFieldNumericLabeled($"{_languageKey}_lightningCount".TranslateSimple(), ref lightningCount, ref lightningCountBuff, 1, 1000);
+            listing.TextFieldNumericLabeled($"{_languageKey}_lightningCount".TranslateSimple(), ref lightningCount, ref lightningCountBuff, 0, 1000);
             listing.TextFieldNumericLabeled($"{_languageKey}_foodSatisfying".TranslateSimple(), ref foodSatisfyingPower, ref _foodSatisfyingPowerBuff, 50, 50_000);
             
             listing.End();
