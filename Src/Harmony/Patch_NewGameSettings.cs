@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Scenario;
 using GreenFight.Storyteller;
+using GreenFight.World;
 using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
+using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace GreenFight.Harmony
 {
@@ -13,6 +17,7 @@ namespace GreenFight.Harmony
     // Изменение процесса настройки новой игры
     public static class Patch_NewGameSettings
     {
+        [HarmonyPatchCategory(nameof(HarmonyStartup.Category.Scenario))]
         [HarmonyPatch(typeof(Page_SelectScenario), "BeginScenarioConfiguration")]
         public static class Patch_Page_SelectScenario_BeginScenarioConfiguration
         {
@@ -23,6 +28,7 @@ namespace GreenFight.Harmony
                 if (scen.name == _targetScenarioName)
                 {
                     Log.Message($"Выбран {_targetScenarioName} сценарий.");
+                    
                     Origin(scen, originPage);
                     return false;
                 }
@@ -56,7 +62,7 @@ namespace GreenFight.Harmony
             {
                 List<Page> pageList = new List<Page>();
                 pageList.Add(new Page_GreenStoryteller());
-                pageList.Add(new Page_CreateWorldParams());
+                pageList.Add(new Page_GreenWorldParams());
                 pageList.Add(new Page_SelectStartingSite());
                 
                 Page firstConfigPage = PageUtility.StitchedPages(pageList);
@@ -70,8 +76,6 @@ namespace GreenFight.Harmony
                 return firstConfigPage;
             }
         }
-        
-        
 }
 }
 
