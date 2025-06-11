@@ -6,6 +6,7 @@
         <description>Этот сценарий автоматически запускает игру без генерации мира вручную и выбора места посадки.</description>
 
         <scenario>
+            <name>GreenFight</name>
             <summary>Three crashlanded survivors - the classic RimWorld experience.</summary>
             <playerFaction>
                 <def>PlayerFaction</def>

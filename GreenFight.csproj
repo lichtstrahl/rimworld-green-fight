@@ -79,7 +79,7 @@
     <Compile Include="Src\Event\IncidentWorker_GreenEvent.cs" />
     <Compile Include="Src\Event\IncidentWorker_GreenPointSpawn.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
-    <Compile Include="Src\Harmony\AutoStartPatch.cs" />
+    <Compile Include="Src\Harmony\Patch_NewGameSettings.cs" />
     <Compile Include="Src\Harmony\HarmonyStartup.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
     <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
@@ -93,10 +93,16 @@
     <Compile Include="Src\Mod\GreenModSettings.cs" />
     <Compile Include="Src\Scenario\GreenScenario.cs" />
     <Compile Include="Src\Scenario\ScenPart_GreenFight.cs" />
+    <Compile Include="Src\Storyteller\DefOf\GreenStorytellerDefOf.cs" />
+    <Compile Include="Src\Storyteller\GreenStorytellerUI.cs" />
+    <Compile Include="Src\Storyteller\Page_GreenStoryteller.cs" />
     <Compile Include="Src\Window\GreenWindow.cs" />
     <Compile Include="Src\World\Action\CaravanArrivalAction_EnterToMap.cs" />
     <Compile Include="Src\World\DefOf\Green_WorldObjectDefOf.cs" />
     <Compile Include="Src\World\WorldObject_GreenPointMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Src\Scenario\New\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   

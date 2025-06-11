@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Scenario;
+using GreenFight.Storyteller;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -9,16 +10,26 @@ using Verse;
 namespace GreenFight.Harmony
 {
 
-    public static class AutoStartPatch
+    // Изменение процесса настройки новой игры
+    public static class Patch_NewGameSettings
     {
         [HarmonyPatch(typeof(Page_SelectScenario), "BeginScenarioConfiguration")]
         public static class Patch_Page_SelectScenario_BeginScenarioConfiguration
         {
+            private const string _targetScenarioName = "GreenFight";
+            
             public static bool Prefix(RimWorld.Scenario scen, Page originPage)
             {
-                Log.Message($"Перехват BeginScenarioConfiguration({scen.name}, {originPage.PageTitle})");
-                Origin(scen, originPage);
-                return false;
+                if (scen.name == _targetScenarioName)
+                {
+                    Log.Message($"Выбран {_targetScenarioName} сценарий.");
+                    Origin(scen, originPage);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
 
             // scenario взят из XML и не имеет каких-либо кастомных вещей. Метод GetFirstConfigPage переопределен отдельно.
@@ -44,7 +55,7 @@ namespace GreenFight.Harmony
             private static Page GetFirstConfigPage()
             {
                 List<Page> pageList = new List<Page>();
-                pageList.Add(new Page_SelectStoryteller());
+                pageList.Add(new Page_GreenStoryteller());
                 pageList.Add(new Page_CreateWorldParams());
                 pageList.Add(new Page_SelectStartingSite());
                 

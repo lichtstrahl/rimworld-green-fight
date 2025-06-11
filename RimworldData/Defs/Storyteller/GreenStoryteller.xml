@@ -3,6 +3,7 @@
     <StorytellerDef ParentName="BaseStoryteller">
         <defName>GreenStoryteller</defName>
         <label>GreenStoryteller</label>
+        <listVisible>false</listVisible>
         
         <description>Специализированный рассказчик для режима GreenFight.</description>
         <portraitLarge>UI/HeroArt/Storytellers/CassandraClassic</portraitLarge>

@@ -6,7 +6,7 @@ namespace GreenFight.Scenario
     {
         public GreenScenario() : base()
         {
-            ScenarioMaker.GenerateNewRandomScenario("asd");
+            
         }
     }
 }
