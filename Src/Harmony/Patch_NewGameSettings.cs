@@ -46,6 +46,10 @@ namespace GreenFight.Harmony
                 Current.Game.Scenario = scenario;
                 Current.Game.Scenario.PreConfigure();
                 Find.GameInitData.startedFromEntry = true;
+                // По умолчанию игра работает в "Ответственном режиме"
+                Find.GameInitData.permadeath = true;
+                Find.GameInitData.permadeathChosen = true;
+                
                 Page firstConfigPage = GetFirstConfigPage();
                 if (firstConfigPage == null)
                 {
