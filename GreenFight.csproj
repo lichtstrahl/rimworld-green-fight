@@ -80,6 +80,7 @@
     <Compile Include="Src\Event\IncidentWorker_GreenPointSpawn.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
     <Compile Include="Src\Harmony\AutoStartPatch.cs" />
+    <Compile Include="Src\Harmony\HarmonyStartup.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
     <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
     <Compile Include="Src\Hediff\GreenHediffComp.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Src\Mod\Extension\DefModExtension_EventExtension.cs" />
     <Compile Include="Src\Mod\GreenMod.cs" />
     <Compile Include="Src\Mod\GreenModSettings.cs" />
+    <Compile Include="Src\Scenario\GreenScenario.cs" />
     <Compile Include="Src\Scenario\ScenPart_GreenFight.cs" />
     <Compile Include="Src\Window\GreenWindow.cs" />
     <Compile Include="Src\World\Action\CaravanArrivalAction_EnterToMap.cs" />

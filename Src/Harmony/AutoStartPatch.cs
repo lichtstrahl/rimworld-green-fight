@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GreenFight.Scenario;
 using HarmonyLib;
 using RimWorld;
@@ -7,16 +9,8 @@ using Verse;
 namespace GreenFight.Harmony
 {
 
-    [StaticConstructorOnStartup]
     public static class AutoStartPatch
     {
-        static AutoStartPatch()
-        {
-            var harmony = new HarmonyLib.Harmony("greenfight.autostart");
-            Log.Message("Применение Harmony патчей");
-            harmony.PatchAll();
-        }
-
         [HarmonyPatch(typeof(Page_SelectScenario), "BeginScenarioConfiguration")]
         public static class Patch_Page_SelectScenario_BeginScenarioConfiguration
         {
@@ -27,6 +21,7 @@ namespace GreenFight.Harmony
                 return false;
             }
 
+            // scenario взят из XML и не имеет каких-либо кастомных вещей. Метод GetFirstConfigPage переопределен отдельно.
             private static void Origin(RimWorld.Scenario scenario, Page page)
             {
                 Current.Game = new Game();
@@ -34,7 +29,7 @@ namespace GreenFight.Harmony
                 Current.Game.Scenario = scenario;
                 Current.Game.Scenario.PreConfigure();
                 Find.GameInitData.startedFromEntry = true;
-                Page firstConfigPage = Current.Game.Scenario.GetFirstConfigPage();
+                Page firstConfigPage = GetFirstConfigPage();
                 if (firstConfigPage == null)
                 {
                     PageUtility.InitGameStart();
@@ -46,7 +41,23 @@ namespace GreenFight.Harmony
                 }
             }
 
-            
+            private static Page GetFirstConfigPage()
+            {
+                List<Page> pageList = new List<Page>();
+                pageList.Add(new Page_SelectStoryteller());
+                pageList.Add(new Page_CreateWorldParams());
+                pageList.Add(new Page_SelectStartingSite());
+                
+                Page firstConfigPage = PageUtility.StitchedPages(pageList);
+                if (firstConfigPage != null)
+                {
+                    Page page = firstConfigPage;
+                    while (page.next != null)
+                        page = page.next;
+                    page.nextAct = () => PageUtility.InitGameStart();
+                }
+                return firstConfigPage;
+            }
         }
         
         
