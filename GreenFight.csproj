@@ -93,6 +93,7 @@
     <Compile Include="Src\Mod\GreenModSettings.cs" />
     <Compile Include="Src\Scenario\GreenScenario.cs" />
     <Compile Include="Src\Scenario\ScenPart_GreenFight.cs" />
+    <Compile Include="Src\Storyteller\DefOf\GreenDifficultyDefOf.cs" />
     <Compile Include="Src\Storyteller\DefOf\GreenStorytellerDefOf.cs" />
     <Compile Include="Src\Storyteller\GreenStorytellerUI.cs" />
     <Compile Include="Src\Storyteller\Page_GreenStoryteller.cs" />

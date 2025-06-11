@@ -14,14 +14,14 @@ namespace GreenFight.Storyteller
         private static Vector2 explanationScrollPosition = new Vector2();
         private static AnimationCurve explanationScrollPositionAnimated;
         private static Rect explanationInnerRect = new Rect();
-        private static float sectionHeightThreats = 0.0f;
-        private static float sectionHeightGeneral = 0.0f;
-        private static float sectionHeightPlayerTools = 0.0f;
-        private static float sectionHeightEconomy = 0.0f;
-        private static float sectionHeightAdaptation = 0.0f;
-        private static float sectionHeightIdeology = 0.0f;
-        private static float sectionHeightChildren = 0.0f;
-        private static float sectionHeightAnomaly = 0.0f;
+        // private static float sectionHeightThreats = 0.0f;
+        // private static float sectionHeightGeneral = 0.0f;
+        // private static float sectionHeightPlayerTools = 0.0f;
+        // private static float sectionHeightEconomy = 0.0f;
+        // private static float sectionHeightAdaptation = 0.0f;
+        // private static float sectionHeightIdeology = 0.0f;
+        // private static float sectionHeightChildren = 0.0f;
+        // private static float sectionHeightAnomaly = 0.0f;
 
         private static readonly Texture2D StorytellerHighlightTex =
             ContentFinder<Texture2D>.Get("UI/HeroArt/Storytellers/Highlight");
@@ -34,6 +34,7 @@ namespace GreenFight.Storyteller
         public static void DrawStorytellerSelectionInterface(
             Rect rect,
             StorytellerDef storyteller,
+            List<DifficultyDef> availableDifficulties,
             ref DifficultyDef difficulty,
             ref Difficulty difficultyValues,
             Listing_Standard infoListing)
@@ -43,11 +44,10 @@ namespace GreenFight.Storyteller
             Rect viewRect = new Rect(0.0f, 0.0f, PortraitSizeTiny.x,
                 (float)DefDatabase<StorytellerDef>.AllDefs.Count<StorytellerDef>() *
                 (PortraitSizeTiny.y + 10f));
+            // Список рассказчиков.
             Widgets.BeginScrollView(outRect1, ref scrollPosition, viewRect);
             Rect rect1 = new Rect(0.0f, 0.0f, PortraitSizeTiny.x, PortraitSizeTiny.y)
                 .ContractedBy(4f);
-
-
             bool selected = true;
             Widgets.DrawOptionBackground(rect1, selected);
             if (Widgets.ButtonImage(rect1, storyteller.portraitTinyTex, Color.white,
@@ -72,6 +72,7 @@ namespace GreenFight.Storyteller
             Rect rect2 = new Rect(0.0f, 120f, 290f, 9999f);
             float val2 = 300f;
 
+            // Основное описание рассказчика
             Rect position = new Rect(390f - outRect2.x,
                 (float)((double)rect.height - (double)PortraitSizeLarge.y - 1.0),
                 PortraitSizeLarge.x, PortraitSizeLarge.y);
@@ -86,7 +87,7 @@ namespace GreenFight.Storyteller
             infoListing.Gap(8f);
             infoListing.Label(storyteller.description, 160f);
             infoListing.Gap(6f);
-            foreach (DifficultyDef allDef in DefDatabase<DifficultyDef>.AllDefs)
+            foreach (DifficultyDef allDef in availableDifficulties)
             {
                 TaggedString labelCap = allDef.LabelCap;
                 if (allDef.isCustom)

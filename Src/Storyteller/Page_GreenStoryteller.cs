@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -25,6 +26,7 @@ namespace GreenFight.Storyteller
             GreenStorytellerUI.DrawStorytellerSelectionInterface(
                 GetMainRect(rect),
                 _storyteller,
+                new List<DifficultyDef> { GreenDifficultyDefOf.GreenDifficultyStandard },
                 ref _difficulty,
                 ref _difficultyValues,
                 _selectedStorytellerInfoListing
