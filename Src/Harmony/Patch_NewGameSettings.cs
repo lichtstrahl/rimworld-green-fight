@@ -65,8 +65,8 @@ namespace GreenFight.Harmony
             private static Page GetFirstConfigPage()
             {
                 List<Page> pageList = new List<Page>();
-                pageList.Add(new Page_GreenStoryteller());
-                pageList.Add(new Page_GreenWorldParams());
+                pageList.Add(new Page_GreenStoryteller(true));
+                // pageList.Add(new Page_GreenWorldParams());
                 pageList.Add(new Page_SelectStartingSite());
                 
                 Page firstConfigPage = PageUtility.StitchedPages(pageList);

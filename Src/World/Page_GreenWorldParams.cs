@@ -11,8 +11,8 @@ namespace GreenFight.World
 {
     public class Page_GreenWorldParams : Page_CreateWorldParams
     {
-        private const string _worldSeed = "GreenFight";
-        private const float _planetCoverage = 0.1f;
+        public const string DefaultWorldSeed = "GreenFight";
+        public const float DefaultPlanetCoverage = 0.1f;
         private const float NoPolution = 0.0f;
         
         private static float listingHeight;
@@ -32,12 +32,12 @@ namespace GreenFight.World
             float y1 = 0.0f;
             float width2 = rect1.width - 200f;
             Widgets.Label(new Rect(0.0f, y1, 200f, 30f), "WorldSeed".Translate());
-            Widgets.Label(new Rect(200f, y1, width2, 30f), _worldSeed);
+            Widgets.Label(new Rect(200f, y1, width2, 30f), DefaultWorldSeed);
             float y2 = y1 + 40f;
             float y3 = y2 + 40f;
             Widgets.Label(new Rect(0.0f, y3, 200f, 30f), "PlanetCoverage".Translate());
             Rect rect2 = new Rect(200f, y3, width2, 30f);
-            Widgets.ButtonText(rect2, _planetCoverage.ToStringPercent(), active: false);
+            Widgets.ButtonText(rect2, DefaultPlanetCoverage.ToStringPercent(), active: false);
 
             // Отключение блока с слайдерами
             // TooltipHandler.TipRegionByKey(new Rect(0.0f, y3, rect2.xMax, rect2.height), "PlanetCoverageTip");
@@ -70,28 +70,37 @@ namespace GreenFight.World
             this.DoBottomButtons(rect, (string)"WorldGenerate".Translate());
         }
 
-        // Переход на следующий экран только после завершения генерации мира. Принудительно закрываем окно и открываем следующее.
+        // Выполняем генерацию и переход, указывая в качестве текущей страницу this.
         protected override bool CanDoNext()
+        {
+            return OnNext(this);
+        }
+
+        /**
+         * Выполнить генерацию мира с переходом на следующую страницу.
+         * Переход на следующий экран только после завершения генерации мира. Принудительно закрываем окно и открываем следующее.
+         * 
+         * - current Страница с которой нужно выполнить переход.
+         */
+        public static bool OnNext(Page current)
         {
             LongEventHandler.QueueLongEvent(() =>
             {
                 Find.GameInitData.ResetWorldRelatedMapInitData();
                 Current.Game.World = WorldGenerator.GenerateWorld(
-                    _planetCoverage,
-                    _worldSeed,
+                    DefaultPlanetCoverage,
+                    DefaultWorldSeed,
                     OverallRainfall.Normal,
                     OverallTemperature.Normal,
-                    OverallPopulation.Normal,
-                    null,
-                    NoPolution
+                    OverallPopulation.Normal
                 );
 
                 LongEventHandler.ExecuteWhenFinished(() =>
                 {
-                    Find.WindowStack.Add(next);
+                    Find.WindowStack.Add(current.next);
                     MemoryUtility.UnloadUnusedUnityAssets();
                     Find.World.renderer.RegenerateAllLayersNow();
-                    Close();
+                    current.Close();
                 });
             }, "GeneratingWorld", true, null);
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GreenFight.World;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -11,9 +12,12 @@ namespace GreenFight.Storyteller
         private DifficultyDef _difficulty = GreenDifficultyDefOf.GreenDifficultyStandard;
         private Difficulty _difficultyValues;
         private Listing_Standard _selectedStorytellerInfoListing = new Listing_Standard();
+        private bool _IsSkipWorldParams;
 
-        public Page_GreenStoryteller()
+        // Создание кастомной страницы настроек рассказчика. С возможностью пропустить последующую настройку мира.
+        public Page_GreenStoryteller(bool isSkipWorldParams)
         {
+            _IsSkipWorldParams = isSkipWorldParams;
             _difficultyValues = new Difficulty(_difficulty);
         }
 
@@ -36,7 +40,8 @@ namespace GreenFight.Storyteller
                 ref _difficultyValues,
                 _selectedStorytellerInfoListing
             );
-            DoBottomButtons(rect);
+            var nextLabel = (_IsSkipWorldParams) ? "WorldGenerate".Translate() : null;
+            DoBottomButtons(rect, nextLabel: nextLabel);
             Rect rect1 = new Rect((float)((double)rect.xMax - (double)BottomButSize.x - 200.0 - 6.0),
                 rect.yMax - BottomButSize.y, 200f, BottomButSize.y);
             Text.Font = GameFont.Tiny;
@@ -83,6 +88,12 @@ namespace GreenFight.Storyteller
             }
 
             Current.Game.storyteller = new RimWorld.Storyteller(this._storyteller, this._difficulty, this._difficultyValues);
+
+            if (_IsSkipWorldParams)
+            {
+                return Page_GreenWorldParams.OnNext(this);
+            }
+
             return true;
         }
     }
