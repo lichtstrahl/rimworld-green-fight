@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>GreenPointSpawn</defName>
+    <label>test</label>
+    <category>Misc</category>
+    <workerClass>GreenFight.Events.IncidentWorker_GreenPointSpawn</workerClass>
+    
+    <letterLabel>Label из XML</letterLabel>
+    <letterText>Text из XML</letterText>
+    
+    <targetTags>
+      <li>World</li>
+    </targetTags>
+  </IncidentDef>
+
+</Defs>

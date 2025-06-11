@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>GreenFactory</defName>
+    <thingClass>GreenFight.Building.Building_GreenFactory</thingClass>
+    
+    <label>Постройка GreenFight</label>
+    <description>Первая постройка в рамках GreenFight.</description>
+    <designationCategory>Misc</designationCategory>
+
+    <graphicData>
+      <texPath>Things/Building1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    
+    <size>(3, 3)</size>
+    <tickerType>Rare</tickerType>
+    
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Beauty>-10</Beauty>
+      <Flammability>0</Flammability>
+      <WorkToBuild>600</WorkToBuild>
+    </statBases>
+    
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="GreenFight.Building.CompProperties_GreenFactory">
+        <Damage>50</Damage>
+      </li>
+
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

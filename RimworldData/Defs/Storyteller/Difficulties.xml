@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DifficultyDef>
+        <defName>GreenDifficultyStandard</defName>
+        <label>Сопротивление</label>
+        <description>Стандартный уровень сложности, предпочтительный для данного сценария.
+
+            (*SectionTitle)Запрещено:(/SectionTitle)
+
+            - Пока нет запретов.
+            - Могут появиться в будущем.</description>
+
+        <difficulty>0</difficulty>
+        <threatScale>0.10</threatScale>
+        <allowBigThreats>false</allowBigThreats>
+        <allowIntroThreats>false</allowIntroThreats>
+        <peacefulTemples>true</peacefulTemples>
+        <allowCaveHives>false</allowCaveHives>
+        <allowViolentQuests>false</allowViolentQuests>
+        <predatorsHuntHumanlikes>false</predatorsHuntHumanlikes>
+        <colonistMoodOffset>10</colonistMoodOffset>
+        <cropYieldFactor>1.20</cropYieldFactor>
+        <mineYieldFactor>1.20</mineYieldFactor>
+        <researchSpeedFactor>1.20</researchSpeedFactor>
+        <diseaseIntervalFactor>3</diseaseIntervalFactor>
+        <enemyReproductionRateFactor>0.1</enemyReproductionRateFactor>
+        <playerPawnInfectionChanceFactor>0.3</playerPawnInfectionChanceFactor>
+        <manhunterChanceOnDamageFactor>0.25</manhunterChanceOnDamageFactor>
+        <deepDrillInfestationChanceFactor>0</deepDrillInfestationChanceFactor>
+        <wastepackInfestationChanceFactor>0</wastepackInfestationChanceFactor>
+        <foodPoisonChanceFactor>0.3</foodPoisonChanceFactor>
+        <maintenanceCostFactor>1</maintenanceCostFactor>
+        <enemyDeathOnDownedChanceFactor>0.5</enemyDeathOnDownedChanceFactor>
+        <adaptationGrowthRateFactorOverZero>0</adaptationGrowthRateFactorOverZero>
+        <scariaRotChance>0</scariaRotChance>
+        <allowExtremeWeatherIncidents>false</allowExtremeWeatherIncidents>
+        <minThreatPointsRangeCeiling>45</minThreatPointsRangeCeiling>
+        <studyEfficiencyFactor>2</studyEfficiencyFactor>
+
+    </DifficultyDef>
+</Defs>

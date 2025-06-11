@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <GreenHediff.label>Перевод Label болезни</GreenHediff.label>
+    <GreenHediff.stages.minor-0.label>незаметное</GreenHediff.stages.minor-0.label>
+    <GreenHediff.stages.minor-1.label>начальное</GreenHediff.stages.minor-1.label>
+    <GreenHediff.stages.moderate.label>легкое</GreenHediff.stages.moderate.label>
+    <GreenHediff.stages.severe.label>среднее</GreenHediff.stages.severe.label>
+    <GreenHediff.stages.very_extreme.label>терминальное</GreenHediff.stages.very_extreme.label>
+
+</LanguageData>

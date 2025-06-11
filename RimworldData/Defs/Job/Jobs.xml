@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+    <JobDef>
+        <defName>UploadItem</defName>
+        <driverClass>GreenFight.Job.JobDriver_UploadItem</driverClass>
+        
+        <reportString>загружает предмет.</reportString>
+    </JobDef>
+    
+    <JobDef>
+        <defName>GetItem</defName>
+        <driverClass>GreenFight.Job.JobDriver_GetItem</driverClass>
+        
+        <reportString>поулчает предмет.</reportString>
+    </JobDef>
+
+    <JobDef>
+        <defName>TradeProthesis</defName>
+        <driverClass>GreenFight.Job.JobDriver_GotoTradeProthesis</driverClass>
+
+        <reportString>покупает протезы.</reportString>
+    </JobDef>
+    
+</Defs>

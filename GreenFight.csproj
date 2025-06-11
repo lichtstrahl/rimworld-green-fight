@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,24 +9,24 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GreenFight</RootNamespace>
     <AssemblyName>GreenFight</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>false</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>RimworldData\Assemblies</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\GreenFight\Assemblies\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>5</WarningLevel>
@@ -46,11 +46,76 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>Libs\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Harmony">
+      <HintPath>Libs\Harmony\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\IncidentWorker_TestIndcident.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Building\GreenFactory\Action\Actions_GreenFactory.cs" />
+    <Compile Include="Src\Building\GreenFactory\Building_GreenFactory.cs" />
+    <Compile Include="Src\Building\GreenFactory\Component\CompProperties_GreenFactory.cs" />
+    <Compile Include="Src\Building\GreenFactory\Component\Comp_GreenFactory.cs" />
+    <Compile Include="Src\Building\SettingsBuilding\Building_SettingsBuilding.cs" />
+    <Compile Include="Src\Bullet\Bullet_GreenBoomBullet.cs" />
+    <Compile Include="Src\Component\GreenComponent.cs" />
+    <Compile Include="Src\Component\World\GreenWorldComponent.cs" />
+    <Compile Include="Src\Condition\DefOf\GreenConditionDefOf.cs" />
+    <Compile Include="Src\Condition\GreenTestCondition.cs" />
+    <Compile Include="Src\Event\IncidentWorker_GreenEvent.cs" />
+    <Compile Include="Src\Event\IncidentWorker_GreenPointSpawn.cs" />
+    <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
+    <Compile Include="Src\Harmony\Patch_NewGameSettings.cs" />
+    <Compile Include="Src\Harmony\HarmonyStartup.cs" />
+    <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
+    <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
+    <Compile Include="Src\Hediff\GreenHediffComp.cs" />
+    <Compile Include="Src\Job\DefOf\GreenJobDefOf.cs" />
+    <Compile Include="Src\Job\JobDriver_GotoTradeProthesis.cs" />
+    <Compile Include="Src\Job\JobDriver_UploadItem.cs" />
+    <Compile Include="Src\Mod\Extension\DefModExtension_BuildingExtension.cs" />
+    <Compile Include="Src\Mod\Extension\DefModExtension_EventExtension.cs" />
+    <Compile Include="Src\Mod\GreenMod.cs" />
+    <Compile Include="Src\Mod\GreenModSettings.cs" />
+    <Compile Include="Src\Scenario\GreenScenario.cs" />
+    <Compile Include="Src\Scenario\ScenPart_GreenFight.cs" />
+    <Compile Include="Src\Storyteller\DefOf\GreenDifficultyDefOf.cs" />
+    <Compile Include="Src\Storyteller\DefOf\GreenStorytellerDefOf.cs" />
+    <Compile Include="Src\Storyteller\GreenStorytellerUI.cs" />
+    <Compile Include="Src\Storyteller\Page_GreenStoryteller.cs" />
+    <Compile Include="Src\Window\GreenWindow.cs" />
+    <Compile Include="Src\World\Action\CaravanArrivalAction_EnterToMap.cs" />
+    <Compile Include="Src\World\DefOf\Green_WorldObjectDefOf.cs" />
+    <Compile Include="Src\World\Page_GreenWorldParams.cs" />
+    <Compile Include="Src\World\WorldObject_GreenPointMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
+  <Target Name="Deploy" AfterTargets="Build">
+    <ItemGroup>
+      <RimworldData Include="RimworldData\**\*.*"/>
+    </ItemGroup>
+    
+    <Message Text="Удаление файлов из $(DeployPath)" Importance="high"/>
+    <RemoveDir Directories="$(DeployPath)"/>
+    <MakeDir Directories="$(DeployPath)"/>
+
+    <Message Text="Копирование файлов" Importance="high"/>
+    <Copy SourceFiles="@(RimworldData)" DestinationFolder="$(DeployPath)\%(RecursiveDir)"/>
+    
+  </Target>
 </Project>
