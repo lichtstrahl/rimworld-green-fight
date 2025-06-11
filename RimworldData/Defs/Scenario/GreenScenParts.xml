@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenPartDef>
+    <defName>ScenPart_GreenFight</defName>
+    <scenPartClass>GreenFight.Scenario.ScenPart_GreenFight</scenPartClass>
+
+    <label>ScenPart_GreenFight label</label>
+    <category>Fixed</category>
+
+
+    <summaryPriority>1000</summaryPriority>
+  </ScenPartDef>
+</Defs>
