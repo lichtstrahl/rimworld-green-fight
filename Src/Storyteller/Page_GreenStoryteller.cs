@@ -8,7 +8,7 @@ namespace GreenFight.Storyteller
     public class Page_GreenStoryteller : Page
     {
         private StorytellerDef _storyteller = GreenStorytellerDefOf.GreenStoryteller;
-        private DifficultyDef _difficulty;
+        private DifficultyDef _difficulty = GreenDifficultyDefOf.GreenDifficultyStandard;
         private Difficulty _difficultyValues = new Difficulty();
         private Listing_Standard _selectedStorytellerInfoListing = new Listing_Standard();
 
@@ -26,7 +26,7 @@ namespace GreenFight.Storyteller
             GreenStorytellerUI.DrawStorytellerSelectionInterface(
                 GetMainRect(rect),
                 _storyteller,
-                new List<DifficultyDef> { GreenDifficultyDefOf.GreenDifficultyStandard },
+                new List<DifficultyDef> { _difficulty },
                 ref _difficulty,
                 ref _difficultyValues,
                 _selectedStorytellerInfoListing
