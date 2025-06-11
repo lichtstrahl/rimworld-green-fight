@@ -9,8 +9,13 @@ namespace GreenFight.Storyteller
     {
         private StorytellerDef _storyteller = GreenStorytellerDefOf.GreenStoryteller;
         private DifficultyDef _difficulty = GreenDifficultyDefOf.GreenDifficultyStandard;
-        private Difficulty _difficultyValues = new Difficulty();
+        private Difficulty _difficultyValues;
         private Listing_Standard _selectedStorytellerInfoListing = new Listing_Standard();
+
+        public Page_GreenStoryteller()
+        {
+            _difficultyValues = new Difficulty(_difficulty);
+        }
 
         public override string PageTitle => "ChooseAIStoryteller".Translate();
 
