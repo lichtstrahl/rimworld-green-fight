@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+    <!-- Базовая инопланетная фракция
+    <FactionDef ParentName="OutlanderFactionBase">
+        <defName>OutlanderCivil</defName>
+        <label>civil outlander union</label>
+        <description>These people have lived here for decades or centuries, and have lost most of the technology that brought them to this world. They usually work with simple machinery and defend themselves with advanced gunpowder weapons.\n\nThey are concerned with the practical matters of trade, trust, and survival.\n\nThis particular group holds civil behavior in high regard.</description>
+        <colorSpectrum>
+            <li>(0.35, 0.30, 0.60)</li>
+            <li>(0.45, 0.40, 0.90)</li>
+        </colorSpectrum>
+        <classicIdeo>true</classicIdeo>
+        <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+        <configurationListOrderPriority>10</configurationListOrderPriority>
+    </FactionDef>
+    -->
+
+    <!-- Базовая враждебная инопланетная фракция
+    <FactionDef ParentName="OutlanderFactionBase" Name="OutlanderRoughBase" Abstract="True">
+        <colorSpectrum>
+            <li>(0, 0.4, 0.94)</li>
+            <li>(0.64, 0.8, 1)</li>
+        </colorSpectrum>
+        <naturalEnemy>true</naturalEnemy>
+        <requiredMemes>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+        </requiredMemes>
+        <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+        <configurationListOrderPriority>20</configurationListOrderPriority>
+    </FactionDef>
+    -->
+    
+    <FactionDef ParentName="OutlanderRoughBase">
+        <defName>ConstructCompanyRough</defName>
+        <label>Межгалактическая строительная корпорация</label>
+        <description>Межгалактическая строительная корпорация, специализирующаяся на проектировании, возведении и автоматизации инфраструктуры в самых экстремальных уголках вселенной. От орбитальных станций до подземных колоний на ледяных планетах. Способна превратить необитаемое пространство в процветающие центры цивилизации. Наша миссия: "Мы строим там, где другие боятся приземлиться."</description>
+        <factionIconPath>Faction/ConstructCompanyLogo</factionIconPath>
+    </FactionDef>
+    
+</Defs>

@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using System.Reflection;
+using Verse;
 
 namespace GreenFight.Harmony
 {
@@ -9,8 +10,9 @@ namespace GreenFight.Harmony
         
         static HarmonyStartup()
         {
-            Log.Message("Применение Harmony патчей"); 
-            Harmony.PatchCategory(nameof(Category.Scenario));
+            Log.Message("Применение Harmony патчей");
+            // HarmonyLib.Harmony.DEBUG = true;
+            Harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
         
         public enum Category
