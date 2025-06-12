@@ -33,9 +33,16 @@
     
     <FactionDef ParentName="OutlanderRoughBase">
         <defName>ConstructCompanyRough</defName>
+        
+        <!-- Описание и внешний вид -->
         <label>Межгалактическая строительная корпорация</label>
         <description>Межгалактическая строительная корпорация, специализирующаяся на проектировании, возведении и автоматизации инфраструктуры в самых экстремальных уголках вселенной. От орбитальных станций до подземных колоний на ледяных планетах. Способна превратить необитаемое пространство в процветающие центры цивилизации. Наша миссия: "Мы строим там, где другие боятся приземлиться."</description>
-        <factionIconPath>Faction/ConstructCompanyLogo</factionIconPath>
+        <factionIconPath>Faction/Insects</factionIconPath>
+
+        <!-- Компоненты для создания имен -->
+        <factionNameMaker>NamerFactionConstructCompanyRough</factionNameMaker>
+        <settlementNameMaker>NamerSettlementConstructCompanyRough</settlementNameMaker>
+        
     </FactionDef>
     
 </Defs>

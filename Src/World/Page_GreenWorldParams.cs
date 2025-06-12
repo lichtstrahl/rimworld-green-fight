@@ -12,7 +12,7 @@ namespace GreenFight.World
     public class Page_GreenWorldParams : Page_CreateWorldParams
     {
         public const string DefaultWorldSeed = "GreenFight";
-        public const float DefaultPlanetCoverage = 0.1f;
+        public const float DefaultPlanetCoverage = 0.2f;
         private const float NoPolution = 0.0f;
         
         private static float listingHeight;
