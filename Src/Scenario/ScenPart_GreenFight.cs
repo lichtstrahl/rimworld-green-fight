@@ -41,6 +41,7 @@ namespace GreenFight.Scenario
                 .FirstOrDefault(f => f.def == factionDef);
             office.SetFaction(faction);
             office.Tile = _TargetStartSettlementTileId;
+            office.Name = NameGenerator.GenerateName(factionDef.settlementNameMaker);
 
             Current.CreatingWorld.worldObjects.Add(office);
         }

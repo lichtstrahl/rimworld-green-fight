@@ -26,12 +26,25 @@ namespace GreenFight.Harmony
                 Harmony.UnpatchCategory(nameof(Category.WorldGeneration));
             }
         }
+
+        public static void PatchSelectStartingSite(bool isEnable)
+        {
+            if (isEnable)
+            {
+                Harmony.PatchCategory(nameof(Category.SelectStartingSite));
+            }
+            else
+            {
+                Harmony.UnpatchCategory(nameof(Category.SelectStartingSite));
+            }
+        }
         
         
         public enum Category
         {
             Scenario,
-            WorldGeneration
+            WorldGeneration,
+            SelectStartingSite
         }
         
     }

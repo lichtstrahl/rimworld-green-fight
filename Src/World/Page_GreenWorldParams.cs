@@ -82,7 +82,7 @@ namespace GreenFight.World
          * 
          * - current Страница с которой нужно выполнить переход.
          */
-        public static bool OnNext(Page current)
+        public static bool OnNext(Page current, int startingTileId = -1)
         {
             LongEventHandler.QueueLongEvent(() =>
             {
@@ -97,7 +97,17 @@ namespace GreenFight.World
 
                 LongEventHandler.ExecuteWhenFinished(() =>
                 {
-                    Find.WindowStack.Add(current.next);
+                    if (startingTileId > 0)
+                    {
+                        Find.WorldInterface.SelectedTile = startingTileId; // ???
+                        Find.GameInitData.startingTile = startingTileId;
+                        PageUtility.InitGameStart();
+                    }
+                    else
+                    {
+                        Find.WindowStack.Add(current.next);
+                    }
+
                     MemoryUtility.UnloadUnusedUnityAssets();
                     Find.World.renderer.RegenerateAllLayersNow();
                     current.Close();

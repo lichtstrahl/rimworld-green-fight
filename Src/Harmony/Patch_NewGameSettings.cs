@@ -22,6 +22,7 @@ namespace GreenFight.Harmony
         public static class Patch_Page_SelectScenario_BeginScenarioConfiguration
         {
             private const string _targetScenarioName = "GreenFight";
+            private const int _DefaultStartingTileId = 53223;
             
             public static bool Prefix(RimWorld.Scenario scen, Page originPage)
             {
@@ -65,9 +66,9 @@ namespace GreenFight.Harmony
             private static Page GetFirstConfigPage()
             {
                 List<Page> pageList = new List<Page>();
-                pageList.Add(new Page_GreenStoryteller(true));
+                pageList.Add(new Page_GreenStoryteller(true, _DefaultStartingTileId));
                 // pageList.Add(new Page_GreenWorldParams());
-                pageList.Add(new Page_SelectStartingSite());
+                // pageList.Add(new Page_SelectStartingSite());
                 
                 Page firstConfigPage = PageUtility.StitchedPages(pageList);
                 if (firstConfigPage != null)

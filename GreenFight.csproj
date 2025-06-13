@@ -101,6 +101,7 @@
     <Compile Include="Src\Window\GreenWindow.cs" />
     <Compile Include="Src\World\Action\CaravanArrivalAction_EnterToMap.cs" />
     <Compile Include="Src\World\DefOf\Green_WorldObjectDefOf.cs" />
+    <Compile Include="Src\World\Page_GreenSelectStartingSite.cs" />
     <Compile Include="Src\World\Page_GreenWorldParams.cs" />
     <Compile Include="Src\World\WorldObject_GreenPointMap.cs" />
   </ItemGroup>
