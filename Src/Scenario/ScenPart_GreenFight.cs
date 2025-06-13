@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using GreenFight.Map;
 using RimWorld;
 using RimWorld.Planet;
@@ -11,7 +12,6 @@ namespace GreenFight.Scenario
     {
         private const string _TargetDefName = "ConstructCompanyRough";
         private const int _TargetStartSettlementTileId = 12644;
-        
         
         public override void PostWorldGenerate()
         {
@@ -34,31 +34,18 @@ namespace GreenFight.Scenario
         {
             base.GenerateIntoMap(map);
             Log.Message("Доп. генерация");
-
-            GenStep_PlayerStartSettlement outpost = new GenStep_PlayerStartSettlement()
-            {
-                minBuildings = 3,
-                minBarracks = 2,
-                size = 64
-            };
             
-            GenStepParams outpostParams = new GenStepParams
+            new List<GenStep>
             {
-                sitePart = new SitePart
+                new GenStep_PlayerStartSettlement()
                 {
-                    expectedEnemyCount = 5,
-                    parms = new SitePartParams
-                    {
-                        threatPoints = 1,
-                        randomValue = 10,
-                        lootMarketValue = 5_000
-                    }
-                }
-            };
-
-            map.info.parent.SetFaction(RimWorld.Faction.OfEntities);
-            outpost.Generate(map, outpostParams);
-            map.info.parent.SetFaction(RimWorld.Faction.OfPlayer);
+                    minBuildings = 1,
+                    minBarracks = 1,
+                    size = 50,
+                    lootMarketValue = 5_000
+                },
+                new GenStep_Power()
+            }.ForEach(s => s.Generate(map, new GenStepParams()));
         }
 
         // private

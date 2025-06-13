@@ -15,6 +15,7 @@ namespace GreenFight.Map
         public int minBarracks = 1;
         public RimWorld.Faction faction = RimWorld.Faction.OfPlayer;
         public int bedCount = 3;
+        public int lootMarketValue = 1_000;
         
 
         public override int SeedPart => 398638182;
@@ -23,9 +24,7 @@ namespace GreenFight.Map
 
         public override void Generate(Verse.Map map, GenStepParams parms)
         {
-            CellRect var1;
-            if (!MapGenerator.TryGetVar<CellRect>("RectOfInterest", out var1))
-                var1 = CellRect.SingleCell(map.Center);
+            CellRect var1 = CellRect.SingleCell(map.Center + IntVec3.East * 60);
             List<CellRect> var2;
             if (!MapGenerator.TryGetVar<List<CellRect>>("UsedRects", out var2))
             {
@@ -36,9 +35,9 @@ namespace GreenFight.Map
             ResolveParams resolveParams = new ResolveParams();
             resolveParams.rect = this.GetOutpostRect(var1, var2, map);
             resolveParams.faction = faction;
-            resolveParams.edgeDefenseWidth = new int?(2);
-            resolveParams.edgeDefenseTurretsCount = new int?(Rand.RangeInclusive(0, 1));
-            resolveParams.edgeDefenseMortarsCount = new int?(0);
+            resolveParams.edgeDefenseWidth = 2;
+            resolveParams.edgeDefenseTurretsCount = Rand.RangeInclusive(4,4);
+            resolveParams.edgeDefenseMortarsCount = 2;
             resolveParams.settlementDontGeneratePawns = true;
             resolveParams.bedCount = bedCount;
             resolveParams.sitePart = parms.sitePart;
@@ -46,7 +45,7 @@ namespace GreenFight.Map
             resolveParams.pawnGroupKindDef = PawnGroupKindDefOf.Settlement;
             resolveParams.settlementPawnGroupPoints = null;
             resolveParams.allowGeneratingThronerooms = true;
-            resolveParams.lootMarketValue = parms.sitePart.parms.lootMarketValue;
+            resolveParams.lootMarketValue = lootMarketValue;
             resolveParams.cornerRadius = 4;
             
             BaseGen.globalSettings.map = map;
