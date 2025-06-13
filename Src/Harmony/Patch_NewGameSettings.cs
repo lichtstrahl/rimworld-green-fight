@@ -17,7 +17,7 @@ namespace GreenFight.Harmony
     // Изменение процесса настройки новой игры
     public static class Patch_NewGameSettings
     {
-        [HarmonyPatchCategory(nameof(HarmonyStartup.Category.Scenario))]
+        [HarmonyPatchCategory(nameof(HarmonyManager.Category.Scenario))]
         [HarmonyPatch(typeof(Page_SelectScenario), "BeginScenarioConfiguration")]
         public static class Patch_Page_SelectScenario_BeginScenarioConfiguration
         {

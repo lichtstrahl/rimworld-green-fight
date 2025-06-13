@@ -79,8 +79,9 @@
     <Compile Include="Src\Event\IncidentWorker_GreenEvent.cs" />
     <Compile Include="Src\Event\IncidentWorker_GreenPointSpawn.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
+    <Compile Include="Src\Faction\DefOf\GreenFactionDefOf.cs" />
     <Compile Include="Src\Harmony\Patch_NewGameSettings.cs" />
-    <Compile Include="Src\Harmony\HarmonyStartup.cs" />
+    <Compile Include="Src\Harmony\HarmonyManager.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
     <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
     <Compile Include="Src\Hediff\GreenHediffComp.cs" />
