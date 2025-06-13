@@ -21,7 +21,7 @@ namespace GreenFight.Events
 
         private bool TestEvent(IncidentParms parms)
         {
-            Map map = (Map)parms.target;
+            Verse.Map map = (Verse.Map)parms.target;
             int pawnsCount = map.mapPawns.ColonistsSpawnedCount;
             if (pawnsCount < 5)
             {

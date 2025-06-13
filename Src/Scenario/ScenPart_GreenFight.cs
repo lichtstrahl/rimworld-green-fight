@@ -1,7 +1,6 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
+using GreenFight.Map;
 using RimWorld;
-using RimWorld.BaseGen;
 using RimWorld.Planet;
 using Verse;
 
@@ -31,13 +30,18 @@ namespace GreenFight.Scenario
         }
 
         // 
-        public override void GenerateIntoMap(Map map)
+        public override void GenerateIntoMap(Verse.Map map)
         {
             base.GenerateIntoMap(map);
             Log.Message("Доп. генерация");
+
+            GenStep_PlayerStartSettlement outpost = new GenStep_PlayerStartSettlement()
+            {
+                minBuildings = 3,
+                minBarracks = 2,
+                size = 64
+            };
             
-            GenStep_Outpost outpost = new GenStep_Outpost();
-            // outpost.requiredWorshippedTerminalRooms = 5;
             GenStepParams outpostParams = new GenStepParams
             {
                 sitePart = new SitePart

@@ -170,7 +170,7 @@ namespace GreenFight.Window
             RefreshProthesis();
         }
 
-        private bool TryTakeSilverFromPlayer(int count, Map map)
+        private bool TryTakeSilverFromPlayer(int count, Verse.Map map)
         {
             if (_silver >= count)
             {

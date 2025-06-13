@@ -25,7 +25,7 @@ namespace GreenFight.Building
         
         // Override
         
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        public override void SpawnSetup(Verse.Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             _compGreenFactory = GetComp<Comp_GreenFactory>();
