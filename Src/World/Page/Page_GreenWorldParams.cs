@@ -99,13 +99,15 @@ namespace GreenFight.World
                 {
                     if (startingTileId > 0)
                     {
-                        Find.WorldInterface.SelectedTile = startingTileId; // ???
                         Find.GameInitData.startingTile = startingTileId;
-                        PageUtility.InitGameStart();
                     }
-                    else
+                    
+                    if (current.next != null)
                     {
                         Find.WindowStack.Add(current.next);
+                    } else if (current.nextAct != null)
+                    {
+                        current.nextAct();
                     }
 
                     MemoryUtility.UnloadUnusedUnityAssets();

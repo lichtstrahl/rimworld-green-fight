@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
+using RimWorld.BaseGen;
 using RimWorld.Planet;
 using Verse;
 
@@ -21,6 +22,42 @@ namespace GreenFight.Scenario
             RemoveExistingSettlements(constructCompanyRough);
             CreateInitSettlement(constructCompanyRough);
         }
+
+        // MapGeneratorDefOf.Base_Player Используется для генерации
+        public override void PreMapGenerate()
+        {
+            base.PreMapGenerate();
+            Log.Message("GreenFight. Перед генерацией карты");
+        }
+
+        // 
+        public override void GenerateIntoMap(Map map)
+        {
+            base.GenerateIntoMap(map);
+            Log.Message("Доп. генерация");
+            
+            GenStep_Outpost outpost = new GenStep_Outpost();
+            // outpost.requiredWorshippedTerminalRooms = 5;
+            GenStepParams outpostParams = new GenStepParams
+            {
+                sitePart = new SitePart
+                {
+                    expectedEnemyCount = 5,
+                    parms = new SitePartParams
+                    {
+                        threatPoints = 1,
+                        randomValue = 10,
+                        lootMarketValue = 5_000
+                    }
+                }
+            };
+
+            map.info.parent.SetFaction(RimWorld.Faction.OfEntities);
+            outpost.Generate(map, outpostParams);
+            map.info.parent.SetFaction(RimWorld.Faction.OfPlayer);
+        }
+
+        // private
 
         private void RemoveExistingSettlements(FactionDef faction)
         {

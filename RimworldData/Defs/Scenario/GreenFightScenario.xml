@@ -28,11 +28,11 @@
                 <!-- Player starting stuff spawn method-->
                 <li Class="ScenPart_PlayerPawnsArriveMethod">
                     <def>PlayerPawnsArriveMethod</def>
-                    <method>DropPods</method>
+                    <method>Standing</method>
                     <visible>false</visible>
                 </li>
 
-                <!-- Player pawns modifiers -->
+                <!-- Отключаем криптосонную болезнь
                 <li Class="ScenPart_ForcedHediff">
                     <def>ForcedHediff</def>
                     <visible>false</visible>
@@ -42,6 +42,7 @@
                     <hideOffMap>true</hideOffMap>
                     <severityRange>1~1</severityRange>
                 </li>
+                -->
 
                 <!-- Player starting things -->
                 <li Class="ScenPart_StartingThing_Defined">

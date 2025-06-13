@@ -73,10 +73,10 @@ namespace GreenFight.Harmony
                 Page firstConfigPage = PageUtility.StitchedPages(pageList);
                 if (firstConfigPage != null)
                 {
-                    Page page = firstConfigPage;
-                    while (page.next != null)
-                        page = page.next;
-                    page.nextAct = () => PageUtility.InitGameStart();
+                    Page lastPage = firstConfigPage;
+                    while (lastPage.next != null)
+                        lastPage = lastPage.next;
+                    lastPage.nextAct = PageUtility.InitGameStart;
                 }
                 return firstConfigPage;
             }
