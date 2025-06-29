@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+    <RulePackDef>
+        <defName>NamerFactionConstructCompanyRough</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>name->[company_name]</li>
+                <li>company_name->Техно Сфера</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+    
+    <RulePackDef>
+        <defName>NamerSettlementConstructCompanyRough</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>name->[location_name]</li>
+                <li>location_name->Офис 1</li>
+                <li>location_name->Офис 2</li>
+                <li>location_name->Офис 3</li>
+                <li>location_name->Офис 4</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+    
+</Defs>

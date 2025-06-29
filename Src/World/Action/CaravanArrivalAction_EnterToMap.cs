@@ -63,7 +63,7 @@ namespace GreenFight.World.Action
         {
             bool hasMap = _map.HasMap;
             IntVec3 size = new IntVec3(260, 1, 260);
-            Map map = GetOrGenerateMapUtility.GetOrGenerateMap(_map.Tile, size, null);
+            Verse.Map map = GetOrGenerateMapUtility.GetOrGenerateMap(_map.Tile, size, null);
             
             if (hasMap)
             {

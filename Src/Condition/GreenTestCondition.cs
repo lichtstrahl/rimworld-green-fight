@@ -34,7 +34,7 @@ namespace GreenFight.Condition
         /**
          * Для каких-то визуальных эффектов при работе события. Например - туман.
          */
-        public override void GameConditionDraw(Map map)
+        public override void GameConditionDraw(Verse.Map map)
         {
             base.GameConditionDraw(map);
         }

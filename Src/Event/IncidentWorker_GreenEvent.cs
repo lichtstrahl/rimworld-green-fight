@@ -11,7 +11,7 @@ namespace GreenFight.Events
         
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            Map map = parms.target as Map;
+            Verse.Map map = parms.target as Verse.Map;
             map.weatherManager.TransitionTo(settings.WeatherDef);
 
             IncidentParms raidParams = StorytellerUtility.DefaultParmsNow(IncidentDefOf.RaidEnemy.category, map);

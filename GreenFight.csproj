@@ -79,14 +79,16 @@
     <Compile Include="Src\Event\IncidentWorker_GreenEvent.cs" />
     <Compile Include="Src\Event\IncidentWorker_GreenPointSpawn.cs" />
     <Compile Include="Src\Event\IncidentWorker_TestIndcident.cs" />
+    <Compile Include="Src\Faction\DefOf\GreenFactionDefOf.cs" />
     <Compile Include="Src\Harmony\Patch_NewGameSettings.cs" />
-    <Compile Include="Src\Harmony\HarmonyStartup.cs" />
+    <Compile Include="Src\Harmony\HarmonyManager.cs" />
     <Compile Include="Src\Hediff\DefOf\GreenHediffDefOf.cs" />
     <Compile Include="Src\Hediff\GreenHediffCompProperties.cs" />
     <Compile Include="Src\Hediff\GreenHediffComp.cs" />
     <Compile Include="Src\Job\DefOf\GreenJobDefOf.cs" />
     <Compile Include="Src\Job\JobDriver_GotoTradeProthesis.cs" />
     <Compile Include="Src\Job\JobDriver_UploadItem.cs" />
+    <Compile Include="Src\Map\GenStep_PlayerStartSettlement.cs" />
     <Compile Include="Src\Mod\Extension\DefModExtension_BuildingExtension.cs" />
     <Compile Include="Src\Mod\Extension\DefModExtension_EventExtension.cs" />
     <Compile Include="Src\Mod\GreenMod.cs" />
@@ -100,7 +102,7 @@
     <Compile Include="Src\Window\GreenWindow.cs" />
     <Compile Include="Src\World\Action\CaravanArrivalAction_EnterToMap.cs" />
     <Compile Include="Src\World\DefOf\Green_WorldObjectDefOf.cs" />
-    <Compile Include="Src\World\Page_GreenWorldParams.cs" />
+    <Compile Include="Src\World\Page\Page_GreenWorldParams.cs" />
     <Compile Include="Src\World\WorldObject_GreenPointMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

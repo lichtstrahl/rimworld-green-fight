@@ -13,11 +13,16 @@ namespace GreenFight.Storyteller
         private Difficulty _difficultyValues;
         private Listing_Standard _selectedStorytellerInfoListing = new Listing_Standard();
         private bool _IsSkipWorldParams;
+        private int _startingTileId;
 
-        // Создание кастомной страницы настроек рассказчика. С возможностью пропустить последующую настройку мира.
-        public Page_GreenStoryteller(bool isSkipWorldParams)
+        // Создание кастомной страницы настроек рассказчика. С возможностью пропустить последующую настройку мира и выбор стартовой позиции.
+        public Page_GreenStoryteller(
+            bool isSkipWorldParams,
+            int startingTileId
+        )
         {
             _IsSkipWorldParams = isSkipWorldParams;
+            _startingTileId = startingTileId;
             _difficultyValues = new Difficulty(_difficulty);
         }
 
@@ -91,7 +96,7 @@ namespace GreenFight.Storyteller
 
             if (_IsSkipWorldParams)
             {
-                return Page_GreenWorldParams.OnNext(this);
+                return Page_GreenWorldParams.OnNext(this, _startingTileId);
             }
 
             return true;

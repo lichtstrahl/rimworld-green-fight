@@ -12,7 +12,7 @@ namespace GreenFight.World
     public class Page_GreenWorldParams : Page_CreateWorldParams
     {
         public const string DefaultWorldSeed = "GreenFight";
-        public const float DefaultPlanetCoverage = 0.1f;
+        public const float DefaultPlanetCoverage = 0.20f;
         private const float NoPolution = 0.0f;
         
         private static float listingHeight;
@@ -82,7 +82,7 @@ namespace GreenFight.World
          * 
          * - current Страница с которой нужно выполнить переход.
          */
-        public static bool OnNext(Page current)
+        public static bool OnNext(Page current, int startingTileId = -1)
         {
             LongEventHandler.QueueLongEvent(() =>
             {
@@ -92,12 +92,24 @@ namespace GreenFight.World
                     DefaultWorldSeed,
                     OverallRainfall.Normal,
                     OverallTemperature.Normal,
-                    OverallPopulation.Normal
+                    OverallPopulation.Little
                 );
 
                 LongEventHandler.ExecuteWhenFinished(() =>
                 {
-                    Find.WindowStack.Add(current.next);
+                    if (startingTileId > 0)
+                    {
+                        Find.GameInitData.startingTile = startingTileId;
+                    }
+                    
+                    if (current.next != null)
+                    {
+                        Find.WindowStack.Add(current.next);
+                    } else if (current.nextAct != null)
+                    {
+                        current.nextAct();
+                    }
+
                     MemoryUtility.UnloadUnusedUnityAssets();
                     Find.World.renderer.RegenerateAllLayersNow();
                     current.Close();

@@ -13,6 +13,7 @@
         <comps>
             <!-- Intro -->
             <li Class="StorytellerCompProperties_ClassicIntro"/>
+            <!-- Отключаем рейды
             <li Class="StorytellerCompProperties_ThreatsGenerator">
                 <allowedTargetTags>
                     <li>Map_RaidBeacon</li>
@@ -26,6 +27,7 @@
                     <minThreatPoints>500</minThreatPoints>
                 </parms>
             </li>
+            -->
             <li Class="StorytellerCompProperties_OnOffCycle">
                 <category>ThreatSmall</category>
                 <minDaysPassed>11.0</minDaysPassed>

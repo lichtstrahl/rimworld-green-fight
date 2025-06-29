@@ -11,7 +11,7 @@ namespace GreenFight.Building.SettingsBuilding
     {
         private DefModExtension_BuildingExtension settings;
 
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        public override void SpawnSetup(Verse.Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
