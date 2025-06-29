@@ -13,8 +13,7 @@ namespace GreenFight.Events
         // Находим расположение тайла на карте. Создаём там объект. Добавляем его в мир и посылаем оповещение.
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            int tile = 0;
-            TileFinder.TryFindNewSiteTile(out tile);
+            TileFinder.TryFindNewSiteTile(out var tile);
 
             WorldObject_GreenPointMap greenPoint = (WorldObject_GreenPointMap)WorldObjectMaker
                 .MakeWorldObject(Green_WorldObjectDefOf.GreenPoint);
