@@ -27,9 +27,9 @@ namespace GreenFight.Component.World
         }
 
         // После загрузки игры.
-        public override void FinalizeInit()
+        public override void FinalizeInit(bool fromLoad)
         {
-            base.FinalizeInit();
+            base.FinalizeInit(fromLoad);
             Log.Message("World окончательно создан.");
         }
     }
