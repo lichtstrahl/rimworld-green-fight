@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Map;
 using RimWorld;
@@ -46,6 +47,16 @@ namespace GreenFight.Scenario
                 },
                 new GenStep_Power()
             }.ForEach(s => s.Generate(map, new GenStepParams()));
+        }
+
+        public override void PostMapGenerate(Verse.Map map)
+        {
+            base.PostMapGenerate(map);
+
+            foreach (var tech in DefDatabase<ResearchProjectDef>.AllDefs)
+            {
+                Find.ResearchManager.FinishProject(tech);
+            }
         }
 
         // private

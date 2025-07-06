@@ -3,11 +3,14 @@
         <defName>GreenFight</defName>
         
         <label>Авто-старт: Выживание</label>
-        <description>Этот сценарий автоматически запускает игру без генерации мира вручную и выбора места посадки.</description>
+        <description>Когда-то наши предки высадились на этой земле, и десятилетиями их потомки обустраивали здесь жизнь и строили планы на будущее. Но всё изменилось, когда на планету вторглась межзвёздная строительная корпорация. Они заявили права на территорию, приступили к освоению нашей нетронутой планеты.
+\nМы могли бы просто уничтожить захватчиков… но в их лагерях полным полно наших бывших соседей, друзей и родственников. Каждая атака — риск убить тех, ради кого мы боремся.
+\nОни похитили и обратили их в рабов на своих чудовищных стройках.
+\nЭтот сценарий автоматически запускает игру без генерации мира вручную и выбора места посадки.</description>
 
         <scenario>
             <name>GreenFight</name>
-            <summary>Three crashlanded survivors - the classic RimWorld experience.</summary>
+            <summary>Вы спокойно жили и процветали. Но большая стройка наступает и былым временам пришел конец!</summary>
             <playerFaction>
                 <def>PlayerFaction</def>
                 <factionDef>PlayerColony</factionDef>
@@ -21,8 +24,8 @@
                 <!-- Config pages -->
                 <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
                     <def>ConfigPage_ConfigureStartingPawns</def>
-                    <pawnCount>3</pawnCount>
-                    <pawnChoiceCount>8</pawnChoiceCount>
+                    <pawnCount>10</pawnCount>
+                    <pawnChoiceCount>10</pawnChoiceCount>
                 </li>
 
                 <!-- Player starting stuff spawn method-->
@@ -130,7 +133,7 @@
                 <!-- Game start dialog -->
                 <li Class="ScenPart_GameStartDialog">
                     <def>GameStartDialog</def>
-                    <textKey>GameStartDialog</textKey>
+                    <textKey>GreenGameStartDialog</textKey>
                     <closeSound>GameStartSting</closeSound>
                 </li>
 

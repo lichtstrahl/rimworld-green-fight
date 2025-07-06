@@ -8,7 +8,7 @@ namespace GreenFight.Storyteller
 {
     public class Page_GreenStoryteller : Page
     {
-        private StorytellerDef _storyteller = GreenStorytellerDefOf.GreenStoryteller;
+        private StorytellerDef _storyteller = GreenStorytellerDefOf.Nikolay;
         private DifficultyDef _difficulty = GreenDifficultyDefOf.GreenDifficultyStandard;
         private Difficulty _difficultyValues;
         private Listing_Standard _selectedStorytellerInfoListing = new Listing_Standard();
