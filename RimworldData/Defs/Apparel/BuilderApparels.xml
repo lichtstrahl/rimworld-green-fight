@@ -7,10 +7,14 @@
         <graphicData>
             <texPath>Things/Apparel/WorkerHelm/WorkerHelm</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>Cutout</shaderType> <!-- или любой другой, не использующий тонирование -->
+            <color>(1,1,1,1)</color>
+            <ignoreThingDrawColor>true</ignoreThingDrawColor>
         </graphicData>
         
         <uiIconScale>1.25</uiIconScale>
-        <costStuffCount>50</costStuffCount>
+        <!-- Возможность производства каски. -->
+        <stuffCategories Inherit="false" />
         <!-- Предмет нельзя переплавить. -->
         <smeltable>false</smeltable>
         
@@ -24,10 +28,7 @@
             <EquipDelay>0.8</EquipDelay>
         </statBases>
         <generateCommonality>0.5</generateCommonality>
-        <recipeMaker>
-            <researchPrerequisite>ComplexClothing</researchPrerequisite>
-            <displayPriority>105</displayPriority>
-        </recipeMaker>
+        <recipeMaker Inherit="false" IsNull="True"/>
         
         <apparel>
             <countsAsClothingForNudity>false</countsAsClothingForNudity>

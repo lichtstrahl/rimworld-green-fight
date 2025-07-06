@@ -1,5 +1,5 @@
 ﻿<Defs>
-    <ScenarioDef>
+    <ScenarioDef ParentName="ScenarioBase">
         <defName>GreenFight</defName>
         
         <label>Авто-старт: Выживание</label>
