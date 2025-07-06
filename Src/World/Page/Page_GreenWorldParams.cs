@@ -92,7 +92,8 @@ namespace GreenFight.World
                     DefaultWorldSeed,
                     OverallRainfall.Normal,
                     OverallTemperature.Normal,
-                    OverallPopulation.Little
+                    OverallPopulation.Little,
+                    LandmarkDensity.Normal
                 );
 
                 LongEventHandler.ExecuteWhenFinished(() =>

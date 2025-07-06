@@ -24,7 +24,7 @@ namespace GreenFight.Map
 
         public override void Generate(Verse.Map map, GenStepParams parms)
         {
-            CellRect var1 = CellRect.SingleCell(map.Center + IntVec3.East * 60);
+            CellRect var1 = CellRect.SingleCell(map.Center + IntVec3.East * 50 + IntVec3.South * 10);
             List<CellRect> var2;
             if (!MapGenerator.TryGetVar<List<CellRect>>("UsedRects", out var2))
             {

@@ -18,7 +18,7 @@ namespace GreenFight.Building.SettingsBuilding
             settings = def.GetModExtension<DefModExtension_BuildingExtension>();
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
 

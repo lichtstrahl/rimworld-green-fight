@@ -17,9 +17,9 @@ namespace GreenFight.World.Action
         }
 
         // Доступна ли точка.
-        public override FloatMenuAcceptanceReport StillValid(Caravan caravan, int destinationTile)
+        public override FloatMenuAcceptanceReport StillValid(Caravan caravan, PlanetTile tile)
         {
-            return !(_map != null && _map.Tile != destinationTile && CanVisit(caravan, _map));
+            return !(_map != null && _map.Tile != tile && CanVisit(caravan, _map));
         }
 
         public override void Arrived(Caravan caravan)
