@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <StorytellerDef ParentName="BaseStoryteller">
-        <defName>GreenStoryteller</defName>
-        <label>GreenStoryteller</label>
+    <StorytellerDef ParentName="BaseStoryteller" Name="Nikolay">
+        <defName>Nikolay</defName>
+        <label>Nikolay</label>
         <listVisible>false</listVisible>
         
         <description>Специализированный рассказчик для режима GreenFight.</description>
-        <portraitLarge>UI/HeroArt/Storytellers/CassandraClassic</portraitLarge>
-        <portraitTiny>UI/HeroArt/Storytellers/CassandraClassicTiny</portraitTiny>
+        <portraitLarge>Storytellers/Nikolay</portraitLarge>
+        <portraitTiny>Storytellers/Nikolay_tiny</portraitTiny>
         
         <listOrder>20</listOrder>
         <comps>
@@ -178,5 +178,16 @@
                 <delayTicks>180</delayTicks>
             </li>
         </comps>
+    </StorytellerDef>
+    
+    
+    <StorytellerDef ParentName="Nikolay" Name="Christopher">
+        <defName>Christopher</defName>
+        <label>Christopher</label>
+        <listVisible>false</listVisible>
+
+        <description>Специализированный рассказчик для режима GreenFight.</description>
+        <portraitLarge>Storytellers/Christopher</portraitLarge>
+        <portraitTiny>Storytellers/Christopher_tiny</portraitTiny>
     </StorytellerDef>
 </Defs>

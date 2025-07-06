@@ -7,6 +7,6 @@ namespace GreenFight.Storyteller
     public static class GreenStorytellerDefOf
     {
         
-        public static StorytellerDef GreenStoryteller;
+        public static StorytellerDef Nikolay;
     }
 }
