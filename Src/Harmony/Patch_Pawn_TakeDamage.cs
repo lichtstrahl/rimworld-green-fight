@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using GreenFight.Thought;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -26,9 +27,11 @@ namespace GreenFight.Harmony
             if (!pawn.DeadOrDowned && pawn.RaceProps.Humanlike)
             {
                 Pawn instigator = dinfo.Instigator as Pawn;
-                if (instigator?.Faction == RimWorld.Faction.OfPlayer)
+                if (instigator != null && instigator.Faction == RimWorld.Faction.OfPlayer)
                 {
                     Messages.Message("EventDamageHuman".TranslateSimple(), MessageTypeDefOf.PawnDeath, false);
+                    ThoughtHandler thoughts = instigator.needs.mood.thoughts;
+                    thoughts.memories.TryGainMemory(GreenThoughtDefOf.GreenInflictDamageOnFriend);
                 }
             }
         }

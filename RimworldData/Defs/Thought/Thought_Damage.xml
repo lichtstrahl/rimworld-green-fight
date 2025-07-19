@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+    <ThoughtDef>
+        <defName>GreenInflictDamageOnFriend</defName>
+        <showBubble>true</showBubble>
+        <icon>Things/Mote/ThoughtSymbol/Skull</icon>
+        <durationDays>5</durationDays>
+        <stackLimit>5</stackLimit>
+        <stackedEffectMultiplier>1.2</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>навредил своему</label>
+                <description>Я нанёс вред одному из нас. Надеюсь остальные этого не заметили, ведь больше это не повторится.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>
