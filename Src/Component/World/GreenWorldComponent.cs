@@ -1,4 +1,6 @@
-﻿using RimWorld.Planet;
+﻿using GreenFight.Harmony;
+using GreenFight.Scenario.DefOf;
+using RimWorld.Planet;
 using Verse;
 
 namespace GreenFight.Component.World
@@ -31,6 +33,8 @@ namespace GreenFight.Component.World
         {
             base.FinalizeInit(fromLoad);
             Log.Message("World окончательно создан.");
+            bool isGreenFight = Find.Scenario?.name == GreenScenarioDefOf.GreenFight.defName;
+            HarmonyManager.PatchThought(isGreenFight);
         }
     }
 }

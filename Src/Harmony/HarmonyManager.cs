@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Verse;
+﻿using Verse;
 
 namespace GreenFight.Harmony
 {
@@ -17,6 +16,7 @@ namespace GreenFight.Harmony
 
         public static void PatchWorldGeneration(bool isEnable)
         {
+            LogPatch(Category.WorldGeneration, isEnable);
             if (isEnable)
             {
                 Harmony.PatchCategory(nameof(Category.WorldGeneration));
@@ -29,6 +29,7 @@ namespace GreenFight.Harmony
 
         public static void PatchSelectStartingSite(bool isEnable)
         {
+            LogPatch(Category.SelectStartingSite, isEnable);
             if (isEnable)
             {
                 Harmony.PatchCategory(nameof(Category.SelectStartingSite));
@@ -38,13 +39,34 @@ namespace GreenFight.Harmony
                 Harmony.UnpatchCategory(nameof(Category.SelectStartingSite));
             }
         }
-        
+
+        public static void PatchThought(bool isEnable)
+        {
+            LogPatch(Category.Thought, isEnable);
+            if (isEnable)
+            {
+                Harmony.PatchCategory(nameof(Category.Thought));
+            }
+            else
+            {
+                Harmony.UnpatchCategory(nameof(Category.Thought));
+            }
+        }
         
         public enum Category
         {
             Scenario,
             WorldGeneration,
-            SelectStartingSite
+            SelectStartingSite,
+            // Мысли/Моральные убеждения
+            Thought
+        }
+        
+        //private
+
+        private static void LogPatch(Category category, bool isEnable)
+        {
+            Log.Message($"Harmony патч {nameof(category)}: {isEnable}");
         }
         
     }
