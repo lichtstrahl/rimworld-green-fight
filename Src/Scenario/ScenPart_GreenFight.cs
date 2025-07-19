@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GreenFight.Map;
+using GreenFight.Trait.DefOf;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -56,6 +56,15 @@ namespace GreenFight.Scenario
             foreach (var tech in DefDatabase<ResearchProjectDef>.AllDefs)
             {
                 Find.ResearchManager.FinishProject(tech);
+            }
+            
+            RimWorld.Trait solidarity = new RimWorld.Trait(GreenTraitDefOf.GreenSolidarity, 0, true);
+            foreach (Pawn colonist in map.mapPawns.FreeColonists)
+            {
+                if (!colonist.story.traits.HasTrait(GreenTraitDefOf.GreenSolidarity))
+                {
+                    colonist.story.traits.GainTrait(solidarity);
+                }
             }
         }
 

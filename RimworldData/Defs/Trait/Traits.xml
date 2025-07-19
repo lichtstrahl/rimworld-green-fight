@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <TraitDef>
+        <defName>GreenSolidarity</defName>
+        <commonality>0.0</commonality>
+        <degreeDatas>
+            <li>
+                <label>солидарность</label>
+                <description>{PAWN_nameDef} видит в рабочих лишь узников и не хочет причинить им вреда. {PAWN_objective} всё ещё близки воспоминания о славных деньках мирной жизни. {PAWN_pronoun} сильно расстроится, если придётся действовать слишком агрессивно.</description>
+            </li>
+        </degreeDatas>
+    </TraitDef>
+</Defs>

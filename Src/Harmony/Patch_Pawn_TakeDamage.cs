@@ -1,4 +1,5 @@
 ﻿using GreenFight.Thought;
+using GreenFight.Trait.DefOf;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -27,13 +28,15 @@ namespace GreenFight.Harmony
             if (!pawn.DeadOrDowned && pawn.RaceProps.Humanlike)
             {
                 Pawn instigator = dinfo.Instigator as Pawn;
-                if (instigator != null && instigator.Faction == RimWorld.Faction.OfPlayer)
+                if (instigator != null && instigator.Faction == RimWorld.Faction.OfPlayer && IsSolidarity(instigator))
                 {
-                    Messages.Message("EventDamageHuman".TranslateSimple(), MessageTypeDefOf.PawnDeath, false);
+                    Messages.Message("EventDamageHuman".TranslateSimple(), MessageTypeDefOf.NegativeHealthEvent, false);
                     ThoughtHandler thoughts = instigator.needs.mood.thoughts;
                     thoughts.memories.TryGainMemory(GreenThoughtDefOf.GreenInflictDamageOnFriend);
                 }
             }
         }
+
+        private static bool IsSolidarity(Pawn pawn) => pawn.story.traits.HasTrait(GreenTraitDefOf.GreenSolidarity);
     }
 }
